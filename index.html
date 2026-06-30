@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArcRender — Tech, Gadgets & Honest Reviews</title>
+<style>
+  :root {
+    --cream: #FFF7E9;
+    --teal-dark: #7fa6a1;
+    --teal-light: #9DBDB8;
+    --orange-dark: #EA2E00;
+    --orange-light: #f04d22;
+    --white: #FFFFFF;
+    --ink: #2a2620;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 22px; letter-spacing: -0.5px; }
+  .logo .a { color: var(--orange-dark); background: var(--white); width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 18px; border: 1.5px solid rgba(0,0,0,0.08); }
+  .nav-links { display: flex; gap: 1.75rem; font-size: 14px; font-weight: 600; }
+  .nav-links a { opacity: 0.75; transition: opacity 0.15s; }
+  .nav-links a:hover { opacity: 1; }
+
+  /* HERO */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero h1 { font-size: 44px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.08; margin-bottom: 1rem; }
+  .hero h1 span { color: var(--orange-dark); }
+  .hero p { font-size: 16px; opacity: 0.75; max-width: 440px; margin-bottom: 1.75rem; }
+  .btn-row { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border-radius: 99px; font-weight: 700; font-size: 14px;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-primary { background: var(--orange-dark); color: var(--white); }
+  .btn-secondary { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); }
+  .btn:hover { transform: translateY(-2px); }
+
+  .hero-visual {
+    position: relative;
+    height: 280px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1.5px solid rgba(0,0,0,0.06);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-visual .mark { font-size: 90px; font-weight: 900; letter-spacing: -3px; }
+  .hero-visual .mark .a { color: var(--ink); -webkit-text-stroke: 1.5px var(--ink); }
+  .hero-visual .mark .r { color: var(--orange-dark); }
+  .hero-visual .mark .c { color: var(--teal-light); }
+
+  /* SECTION BASE */
+  section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+  .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-dark); margin-bottom: 0.6rem; }
+  .section-title { font-size: 28px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 2rem; }
+
+  /* LATEST VIDEO */
+  .video-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .video-embed { position: relative; padding-bottom: 56.25%; height: 0; background: var(--ink); }
+  .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+  .video-meta { padding: 1.5rem 1.75rem; }
+  .video-meta h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+  .video-meta p { font-size: 13px; opacity: 0.6; }
+
+  /* TOPICS GRID */
+  .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .topic-card {
+    background: #fff; border-radius: 16px; padding: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .topic-dot { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .dot-teal { background: var(--teal-light); }
+  .dot-orange { background: var(--orange-dark); color: var(--white); }
+  .topic-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .topic-card p { font-size: 13px; opacity: 0.65; }
+
+  /* ABOUT */
+  .about-box {
+    background: var(--ink); color: var(--cream);
+    border-radius: 24px; padding: 2.5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
+  }
+  .about-box h3 { font-size: 24px; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.5px; }
+  .about-box p { font-size: 14px; opacity: 0.8; margin-bottom: 1.25rem; }
+  .keyword-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill { font-size: 11px; padding: 4px 10px; border-radius: 99px; background: rgba(255,255,255,0.1); }
+
+  /* SOCIAL / CONTACT */
+  .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 500px; }
+  .contact-card {
+    background: #fff; border-radius: 14px; padding: 1.25rem;
+    text-align: center; border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.15s;
+  }
+  .contact-card:hover { transform: translateY(-3px); }
+  .contact-icon { font-size: 22px; margin-bottom: 8px; }
+  .contact-card span { font-size: 13px; font-weight: 700; display: block; }
+
+  footer {
+    text-align: center; padding: 2.5rem 2rem; font-size: 12px; opacity: 0.5;
+  }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 32px; }
+    .topics-grid { grid-template-columns: 1fr; }
+    .about-box { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: repeat(2, 1fr); max-width: none; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><div class="a">a</div>ArcRender</div>
+  <div class="nav-links">
+    <a href="#videos">Videos</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <h1>Tech and gadgets, <span>outside the spec sheet.</span></h1>
+    <p>Honest reviews, switcher stories, and a deep dive into whatever weird, wonderful piece of consumer electronics caught my attention this week.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://www.youtube.com/@ArcRender" target="_blank">▶ Watch on YouTube</a>
+      <a class="btn btn-secondary" href="#contact">Business Inquiries</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="mark"><span class="a">a</span><span class="r">r</span><span class="c">c</span></div>
+  </div>
+</div>
+
+<section id="videos">
+  <div class="section-label">Latest Upload</div>
+  <div class="section-title">From the channel</div>
+  <div class="video-card">
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=ArcRender" title="Latest ArcRender video" allowfullscreen></iframe>
+    </div>
+    <div class="video-meta">
+      <h3>Subscribe for the latest review</h3>
+      <p>Embed updates automatically as new videos are published to @ArcRender</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">What I Cover</div>
+  <div class="section-title">Topics on the channel</div>
+  <div class="topics-grid">
+    <div class="topic-card">
+      <div class="topic-dot dot-orange">📱</div>
+      <h4>Phone & Gadget Reviews</h4>
+      <p>Honest, lived-in reviews of phones, handhelds, and gear — not spec sheet recitations.</p>
+    </div>
+    <div class="topic-card">
+      <div class="topic-dot dot-teal">🎮</div>
+      <h4>Handheld & PC Gaming</h4>
+      <p>Indie titles, retro consoles, and budget-friendly gaming setups worth your time.</p>
+    </div>
+    <div class="topic-card">
+      <div class="topic-dot dot-orange">🛠️</div>
+      <h4>Setups & Self-Hosting</h4>
+      <p>NAS builds, privacy-first tools, and tinkering with hardware others gave up on.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-box">
+    <div>
+      <h3>About the channel</h3>
+      <p>Hey, welcome! I share my interest in tech gadgets, gaming, and retro consoles, plus tips on PCs, video editing, and fun tech setups — generally stuff I think is cool. Subscribe for videos full of games, gadgets, and other fun.</p>
+      <a class="btn btn-primary" href="https://www.youtube.com/@ArcRender" target="_blank">Subscribe on YouTube</a>
+    </div>
+    <div class="keyword-pills">
+      <span class="pill">Tech Reviews</span>
+      <span class="pill">Gaming</span>
+      <span class="pill">Gadget Reviews</span>
+      <span class="pill">Handheld Gaming</span>
+      <span class="pill">Android Phones</span>
+      <span class="pill">Budget PC</span>
+      <span class="pill">Hardware Reviews</span>
+      <span class="pill">Price to Performance</span>
+      <span class="pill">Content Creation</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">Let's Talk</div>
+  <div class="section-title">Connect with ArcRender</div>
+  <div class="contact-grid">
+    <a class="contact-card" href="https://www.youtube.com/@ArcRender" target="_blank">
+      <div class="contact-icon">▶</div>
+      <span>YouTube</span>
+    </a>
+    <a class="contact-card" href="mailto:arc@arcrender.net">
+      <div class="contact-icon">✉</div>
+      <span>Business Inquiries</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2026 ArcRender. All rights reserved.
+</footer>
+
+</body>
+</html>
