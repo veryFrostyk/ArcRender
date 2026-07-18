@@ -3,243 +3,230 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ArcRender — Tech, Gadgets & Honest Reviews</title>
+<title>ArcRender — Tech and Gadgets, Outside the Spec Sheet</title>
+<meta name="description" content="Honest tech reviews, gadget deep dives, and honest coverage outside the spec sheet. Sony Xperia, Mac Pro, PS4, handheld gaming and more.">
+<meta name="keywords" content="tech reviews, gadget reviews, honest tech review, Sony Xperia review, Mac Pro 2013, PS4 review, handheld gaming, ArcRender, YouTube tech channel">
+<meta property="og:title" content="ArcRender — Tech and Gadgets, Outside the Spec Sheet">
+<meta property="og:description" content="Honest reviews, switcher stories, and a deep dive into whatever weird, wonderful piece of consumer electronics caught the eye this week.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arcrender.net">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ArcRender">
+<meta name="twitter:description" content="Tech and gadgets, outside the spec sheet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --cream: #FFF7E9;
-    --teal-dark: #7fa6a1;
-    --teal-light: #9DBDB8;
-    --orange-dark: #EA2E00;
-    --orange-light: #f04d22;
-    --white: #FFFFFF;
-    --ink: #2a2620;
+    --cream: #EDE0C8;
+    --cream-light: #F1E4CC;
+    --orange: #EA2E00;
+    --teal: #9DBDB8;
+    --ink: #2A231D;
+    --ink-card: #362D25;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    line-height: 1.6;
-  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); font-family: 'Manrope', sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
 
-  /* NAV */
   nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
+    background: var(--ink);
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 22px; letter-spacing: -0.5px; }
-  .logo .a { color: var(--orange-dark); background: var(--white); width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 18px; border: 1.5px solid rgba(0,0,0,0.08); }
-  .nav-links { display: flex; gap: 1.75rem; font-size: 14px; font-weight: 600; }
-  .nav-links a { opacity: 0.75; transition: opacity 0.15s; }
-  .nav-links a:hover { opacity: 1; }
+  .nav-logo { display: flex; align-items: center; gap: 14px; }
+  .nav-logo img { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; }
+  .nav-logo-text { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: var(--cream-light); letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 32px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(241,228,204,0.5); }
+  .nav-links a:hover { color: var(--cream-light); }
+  .nav-cta { background: var(--orange); color: var(--cream-light); font-weight: 700; font-size: 13px; padding: 10px 22px; border-radius: 999px; }
+  .nav-cta:hover { opacity: 0.9; }
 
-  /* HERO */
-  .hero {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 3rem 2rem 4rem;
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
-    align-items: center;
-  }
-  .hero h1 { font-size: 44px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.08; margin-bottom: 1rem; }
-  .hero h1 span { color: var(--orange-dark); }
-  .hero p { font-size: 16px; opacity: 0.75; max-width: 440px; margin-bottom: 1.75rem; }
-  .btn-row { display: flex; gap: 0.85rem; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 22px; border-radius: 99px; font-weight: 700; font-size: 14px;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .btn-primary { background: var(--orange-dark); color: var(--white); }
-  .btn-secondary { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); }
-  .btn:hover { transform: translateY(-2px); }
+  .hero { background: var(--ink); padding: 80px 96px 88px; display: flex; flex-direction: column; gap: 28px; }
+  .hero-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); }
+  .hero-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 80px; line-height: 0.98; color: var(--cream-light); letter-spacing: -0.02em; }
+  .hero-heading span { color: var(--orange); }
+  .hero-sub { font-size: 18px; line-height: 1.6; color: rgba(241,228,204,0.7); max-width: 560px; font-weight: 500; }
+  .hero-actions { display: flex; gap: 14px; align-items: center; margin-top: 8px; }
+  .btn-primary { background: var(--orange); color: var(--cream-light); font-weight: 800; font-size: 14px; padding: 14px 28px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-ghost { border: 1.5px solid rgba(241,228,204,0.25); color: rgba(241,228,204,0.7); font-weight: 700; font-size: 14px; padding: 13px 24px; border-radius: 999px; }
+  .btn-ghost:hover { border-color: rgba(241,228,204,0.5); color: var(--cream-light); }
 
-  .hero-visual {
-    position: relative;
-    height: 280px;
-    border-radius: 24px;
-    overflow: hidden;
-    background: var(--white);
-    border: 1.5px solid rgba(0,0,0,0.06);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .hero-visual .mark { font-size: 90px; font-weight: 900; letter-spacing: -3px; }
-  .hero-visual .mark .a { color: var(--ink); -webkit-text-stroke: 1.5px var(--ink); }
-  .hero-visual .mark .r { color: var(--orange-dark); }
-  .hero-visual .mark .c { color: var(--teal-light); }
+  .section { padding: 80px 96px; }
+  .section-dark { background: var(--ink); }
+  .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+  .section-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: -0.01em; margin-bottom: 44px; }
+  .section-heading-light { color: var(--cream-light); }
 
-  /* SECTION BASE */
-  section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
-  .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-dark); margin-bottom: 0.6rem; }
-  .section-title { font-size: 28px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 2rem; }
-
-  /* LATEST VIDEO */
-  .video-card {
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-  }
-  .video-embed { position: relative; padding-bottom: 56.25%; height: 0; background: var(--ink); }
+  .video-card-featured { background: var(--ink-card); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 1.5fr 1fr; margin-bottom: 24px; }
+  .video-embed { position: relative; padding-bottom: 56.25%; height: 0; background: #1a1410; }
   .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-  .video-meta { padding: 1.5rem 1.75rem; }
-  .video-meta h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
-  .video-meta p { font-size: 13px; opacity: 0.6; }
+  .video-meta { padding: 36px 40px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+  .video-badge { display: inline-flex; background: rgba(234,46,0,0.2); color: var(--orange); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; width: fit-content; }
+  .video-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 26px; line-height: 1.1; color: var(--cream-light); letter-spacing: -0.01em; }
+  .video-title-sm { font-size: 20px; }
+  .video-desc { font-size: 14px; line-height: 1.65; color: rgba(241,228,204,0.6); font-weight: 500; }
+  .video-watch { display: inline-flex; align-items: center; gap: 6px; color: var(--teal); font-weight: 700; font-size: 13px; margin-top: 4px; }
+  .video-watch:hover { color: var(--cream-light); }
 
-  /* TOPICS GRID */
-  .topics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-  .topic-card {
-    background: #fff; border-radius: 16px; padding: 1.5rem;
-    border: 1px solid rgba(0,0,0,0.06);
-  }
-  .topic-dot { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-  .dot-teal { background: var(--teal-light); }
-  .dot-orange { background: var(--orange-dark); color: var(--white); }
-  .topic-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-  .topic-card p { font-size: 13px; opacity: 0.65; }
+  .side-videos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .video-card-small { background: var(--ink-card); border-radius: 16px; overflow: hidden; }
+  .video-card-small .video-meta { padding: 22px 26px; gap: 10px; }
 
-  /* ABOUT */
-  .about-box {
-    background: var(--ink); color: var(--cream);
-    border-radius: 24px; padding: 2.5rem;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
-  }
-  .about-box h3 { font-size: 24px; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.5px; }
-  .about-box p { font-size: 14px; opacity: 0.8; margin-bottom: 1.25rem; }
-  .keyword-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-  .pill { font-size: 11px; padding: 4px 10px; border-radius: 99px; background: rgba(255,255,255,0.1); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .about-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 52px; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 18px; }
+  .about-heading span { color: var(--orange); }
+  .about-body { font-size: 17px; line-height: 1.65; color: rgba(42,35,29,0.8); font-weight: 500; margin-bottom: 24px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+  .tag { font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 999px; }
+  .tag-orange { background: rgba(234,46,0,0.12); color: var(--orange); }
+  .tag-teal { background: rgba(157,189,184,0.3); color: var(--ink); }
+  .tag-ink { background: rgba(42,35,29,0.08); color: var(--ink); }
+  .about-visual { background: var(--ink); border-radius: 20px; padding: 44px; display: flex; flex-direction: column; gap: 20px; }
+  .stat { border-bottom: 1px solid rgba(241,228,204,0.1); padding-bottom: 20px; }
+  .stat:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 44px; color: var(--orange); letter-spacing: -0.02em; }
+  .stat-label { font-size: 12px; font-weight: 600; color: rgba(241,228,204,0.45); margin-top: 2px; letter-spacing: 0.07em; text-transform: uppercase; }
 
-  /* SOCIAL / CONTACT */
-  .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 500px; }
-  .contact-card {
-    background: #fff; border-radius: 14px; padding: 1.25rem;
-    text-align: center; border: 1px solid rgba(0,0,0,0.06);
-    transition: transform 0.15s;
-  }
-  .contact-card:hover { transform: translateY(-3px); }
-  .contact-icon { font-size: 22px; margin-bottom: 8px; }
-  .contact-card span { font-size: 13px; font-weight: 700; display: block; }
+  .contact-section { background: var(--orange); padding: 72px 96px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .contact-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 48px; color: var(--cream-light); letter-spacing: -0.02em; line-height: 1.05; }
+  .contact-note { font-size: 15px; color: rgba(241,228,204,0.85); font-weight: 500; max-width: 420px; line-height: 1.6; margin-top: 12px; }
+  .btn-cream { background: var(--cream-light); color: var(--orange); font-weight: 800; font-size: 14px; padding: 14px 28px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
+  .btn-cream:hover { background: #fff; }
 
-  footer {
-    text-align: center; padding: 2.5rem 2rem; font-size: 12px; opacity: 0.5;
-  }
+  footer { background: var(--ink); padding: 36px 96px; display: flex; align-items: center; justify-content: space-between; }
+  .footer-brand { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 20px; color: var(--cream-light); }
+  .footer-links { display: flex; gap: 28px; font-size: 13px; font-weight: 600; color: rgba(241,228,204,0.35); }
+  .footer-links a:hover { color: var(--cream-light); }
+  .footer-copy { font-size: 12px; color: rgba(241,228,204,0.2); }
 
-  @media (max-width: 760px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 32px; }
-    .topics-grid { grid-template-columns: 1fr; }
-    .about-box { grid-template-columns: 1fr; }
-    .contact-grid { grid-template-columns: repeat(2, 1fr); max-width: none; }
+  @media (max-width: 860px) {
+    nav { padding: 16px 24px; }
     .nav-links { display: none; }
+    .hero { padding: 48px 24px 56px; }
+    .hero-heading { font-size: 44px; }
+    .section { padding: 52px 24px; }
+    .video-card-featured { grid-template-columns: 1fr; }
+    .side-videos { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-section { padding: 48px 24px; flex-direction: column; align-items: flex-start; }
+    footer { padding: 28px 24px; flex-direction: column; gap: 16px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo"><div class="a">a</div>ArcRender</div>
+  <div class="nav-logo">
+    <img src="https://yt3.googleusercontent.com/ytc/APkrFKZWeMCsx4Q9e_Pk9CPfdnVuLOt7wTuKCGkpbsKpCg=s176-c-k-c0x00ffffff-no-rj" alt="ArcRender" onerror="this.style.display='none'">
+    <span class="nav-logo-text">ArcRender</span>
+  </div>
   <div class="nav-links">
     <a href="#videos">Videos</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
+  <a class="nav-cta" href="https://www.youtube.com/@ArcRender?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
 </nav>
 
-<div class="hero">
-  <div>
-    <h1>Tech and gadgets, <span>outside the spec sheet.</span></h1>
-    <p>Honest reviews, switcher stories, and a deep dive into whatever weird, wonderful piece of consumer electronics caught my attention this week.</p>
-    <div class="btn-row">
-      <a class="btn btn-primary" href="https://www.youtube.com/@ArcRender" target="_blank">▶ Watch on YouTube</a>
-      <a class="btn btn-secondary" href="#contact">Business Inquiries</a>
-    </div>
+<section class="hero">
+  <div class="hero-eyebrow">Tech and Gadgets</div>
+  <h1 class="hero-heading">Outside<br><span>the spec sheet.</span></h1>
+  <p class="hero-sub">Honest reviews, switcher stories, and a deep dive into whatever weird, wonderful piece of tech caught the eye this week.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="https://www.youtube.com/@ArcRender" target="_blank" rel="noopener">&#9654; Watch on YouTube</a>
+    <a class="btn-ghost" href="#contact">Business Inquiries</a>
   </div>
-  <div class="hero-visual">
-    <div class="mark"><span class="a">a</span><span class="r">r</span><span class="c">c</span></div>
-  </div>
-</div>
+</section>
 
-<section id="videos">
-  <div class="section-label">Latest Upload</div>
-  <div class="section-title">From the channel</div>
-  <div class="video-card">
+<section class="section section-dark" id="videos">
+  <div class="section-label">Latest uploads</div>
+  <h2 class="section-heading section-heading-light">From the channel</h2>
+
+  <div class="video-card-featured">
     <div class="video-embed">
-      <iframe src="https://www.youtube.com/embed/OOotaUi42hA" title="Latest ArcRender video" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/yKpp80Ps-uk" title="I Bought a $150 Mac Pro" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
     </div>
     <div class="video-meta">
-      <h3>Subscribe for the latest review</h3>
-      <p>Embed updates automatically as new videos are published to @ArcRender</p>
+      <span class="video-badge">Newest</span>
+      <h3 class="video-title">I Bought a $150 Mac Pro. Its Kinda Amazing.</h3>
+      <p class="video-desc">Apple's most powerful computer from 2013 now costs less than a stick of DDR5 RAM. Can it still game? Is it usable as a daily driver? This is what happens when you actually live with it.</p>
+      <a class="video-watch" href="https://www.youtube.com/watch?v=yKpp80Ps-uk" target="_blank" rel="noopener">Watch on YouTube &#8594;</a>
+    </div>
+  </div>
+
+  <div class="side-videos">
+    <div class="video-card-small">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/OOotaUi42hA" title="This Phone Made Me Switch to Android" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <div class="video-meta">
+        <h3 class="video-title video-title-sm">This Phone Made Me Switch to Android</h3>
+        <p class="video-desc">After nearly a decade on iPhone, I switched to the Sony Xperia 1 VII. A phone Sony does not even sell in North America.</p>
+        <a class="video-watch" href="https://www.youtube.com/watch?v=OOotaUi42hA" target="_blank" rel="noopener">Watch &#8594;</a>
+      </div>
+    </div>
+    <div class="video-card-small">
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/4oLPmMk7JFc" title="The $399 PS4 Challenge" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </div>
+      <div class="video-meta">
+        <h3 class="video-title video-title-sm">The $399 PS4 Challenge</h3>
+        <p class="video-desc">How much gaming can you get for the original PS4 launch price? A PS4 Pro, a stack of games, and one honest verdict.</p>
+        <a class="video-watch" href="https://www.youtube.com/watch?v=4oLPmMk7JFc" target="_blank" rel="noopener">Watch &#8594;</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="section-label">What I Cover</div>
-  <div class="section-title">Topics on the channel</div>
-  <div class="topics-grid">
-    <div class="topic-card">
-      <div class="topic-dot dot-orange">📱</div>
-      <h4>Phone & Gadget Reviews</h4>
-      <p>Honest, lived-in reviews of phones, handhelds, and gear — not spec sheet recitations.</p>
-    </div>
-    <div class="topic-card">
-      <div class="topic-dot dot-teal">🎮</div>
-      <h4>Handheld & PC Gaming</h4>
-      <p>Indie titles, retro consoles, and budget-friendly gaming setups worth your time.</p>
-    </div>
-    <div class="topic-card">
-      <div class="topic-dot dot-orange">🛠️</div>
-      <h4>Setups & Self-Hosting</h4>
-      <p>NAS builds, privacy-first tools, and tinkering with hardware others gave up on.</p>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="about-box">
+<section class="section" id="about">
+  <div class="about-grid">
     <div>
-      <h3>About the channel</h3>
-      <p>Hey, welcome! I share my interest in tech gadgets, gaming, and retro consoles, plus tips on PCs, video editing, and fun tech setups — generally stuff I think is cool. Subscribe for videos full of games, gadgets, and other fun.</p>
-      <a class="btn btn-primary" href="https://www.youtube.com/@ArcRender" target="_blank">Subscribe on YouTube</a>
+      <div class="section-label">About the channel</div>
+      <h2 class="about-heading">Honest takes.<br><span>No hype.</span></h2>
+      <p class="about-body">ArcRender covers tech the way a knowledgeable friend would. Warm, direct, and focused on what a gadget actually feels like to live with, not just what the box says.</p>
+      <div class="tags">
+        <span class="tag tag-orange">Warm</span>
+        <span class="tag tag-teal">Playful</span>
+        <span class="tag tag-ink">Trustworthy</span>
+      </div>
+      <a class="btn-primary" href="https://www.youtube.com/@ArcRender?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
     </div>
-    <div class="keyword-pills">
-      <span class="pill">Tech Reviews</span>
-      <span class="pill">Gaming</span>
-      <span class="pill">Gadget Reviews</span>
-      <span class="pill">Handheld Gaming</span>
-      <span class="pill">Android Phones</span>
-      <span class="pill">Budget PC</span>
-      <span class="pill">Hardware Reviews</span>
-      <span class="pill">Price to Performance</span>
-      <span class="pill">Content Creation</span>
+    <div class="about-visual">
+      <div class="stat">
+        <div class="stat-num">116K+</div>
+        <div class="stat-label">Views on debut video</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1.6K</div>
+        <div class="stat-label">Subscribers and growing</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10</div>
+        <div class="stat-label">Videos published</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <div class="section-label">Let's Talk</div>
-  <div class="section-title">Connect with ArcRender</div>
-  <div class="contact-grid">
-    <a class="contact-card" href="https://www.youtube.com/@ArcRender" target="_blank">
-      <div class="contact-icon">▶</div>
-      <span>YouTube</span>
-    </a>
-    <a class="contact-card" href="mailto:arc@arcrender.net">
-      <div class="contact-icon">✉</div>
-      <span>Business Inquiries</span>
-    </a>
+<section class="contact-section" id="contact">
+  <div>
+    <h2 class="contact-heading">Business<br>Inquiries.</h2>
+    <p class="contact-note">Paid integrations within existing long-form videos only. Not currently accepting gifting-only collaborations or dedicated sponsored content.</p>
   </div>
+  <a class="btn-cream" href="mailto:arc@arcrender.net">arc@arcrender.net</a>
 </section>
 
 <footer>
-  © 2026 ArcRender. All rights reserved.
+  <div class="footer-brand">ArcRender</div>
+  <div class="footer-links">
+    <a href="https://www.youtube.com/@ArcRender" target="_blank" rel="noopener">YouTube</a>
+    <a href="mailto:arc@arcrender.net">Email</a>
+    <a href="https://arcrender.net">arcrender.net</a>
+  </div>
+  <div class="footer-copy">&#169; 2026 ArcRender</div>
 </footer>
 
 </body>
