@@ -1,242 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ArcRender — Tech and Gadgets, Outside the Spec Sheet</title>
-<meta name="description" content="Honest tech reviews, gadget deep dives, and honest coverage outside the spec sheet. Sony Xperia, Mac Pro, PS4, handheld gaming and more.">
-<meta name="keywords" content="tech reviews, gadget reviews, honest tech review, Sony Xperia review, Mac Pro 2013, PS4 review, handheld gaming, ArcRender, YouTube tech channel">
-<meta property="og:title" content="ArcRender — Tech and Gadgets, Outside the Spec Sheet">
-<meta property="og:description" content="Honest reviews, switcher stories, and a deep dive into whatever weird, wonderful piece of consumer electronics caught the eye this week.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://arcrender.net">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ArcRender">
-<meta name="twitter:description" content="Tech and gadgets, outside the spec sheet.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --cream: #EDE0C8;
-    --cream-light: #F1E4CC;
-    --orange: #EA2E00;
-    --teal: #9DBDB8;
-    --ink: #2A231D;
-    --ink-card: #362D25;
-  }
-  html { scroll-behavior: smooth; }
-  body { background: var(--cream); font-family: 'Manrope', sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration: none; }
-
-  nav {
-    background: var(--ink);
-    padding: 20px 48px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo { display: flex; align-items: center; gap: 14px; }
-  .nav-logo img { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; }
-  .nav-logo-text { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: var(--cream-light); letter-spacing: -0.02em; }
-  .nav-links { display: flex; gap: 32px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(241,228,204,0.5); }
-  .nav-links a:hover { color: var(--cream-light); }
-  .nav-cta { background: var(--orange); color: var(--cream-light); font-weight: 700; font-size: 13px; padding: 10px 22px; border-radius: 999px; }
-  .nav-cta:hover { opacity: 0.9; }
-
-  .hero { background: var(--ink); padding: 80px 96px 88px; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
-  .hero-content { display: flex; flex-direction: column; gap: 28px; }
-  .hero-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); }
-  .hero-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 80px; line-height: 0.98; color: var(--cream-light); letter-spacing: -0.02em; }
-  .hero-heading span { color: var(--orange); }
-  .hero-sub { font-size: 18px; line-height: 1.6; color: rgba(241,228,204,0.7); max-width: 560px; font-weight: 500; }
-  .hero-actions { display: flex; gap: 14px; align-items: center; margin-top: 8px; }
-  .hero-logo-wrap { width: 280px; height: 280px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 3px solid rgba(241,228,204,0.08); }
-  .hero-logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
-  .btn-primary { background: var(--orange); color: var(--cream-light); font-weight: 800; font-size: 14px; padding: 14px 28px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; }
-  .btn-primary:hover { opacity: 0.9; }
-  .btn-ghost { border: 1.5px solid rgba(241,228,204,0.25); color: rgba(241,228,204,0.7); font-weight: 700; font-size: 14px; padding: 13px 24px; border-radius: 999px; }
-  .btn-ghost:hover { border-color: rgba(241,228,204,0.5); color: var(--cream-light); }
-
-  .section { padding: 80px 96px; }
-  .section-dark { background: var(--ink); }
-  .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
-  .section-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: -0.01em; margin-bottom: 44px; }
-  .section-heading-light { color: var(--cream-light); }
-
-  .video-card-featured { background: var(--ink-card); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 1.5fr 1fr; margin-bottom: 24px; }
-  .video-embed { position: relative; padding-bottom: 56.25%; height: 0; background: #1a1410; }
-  .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-  .video-meta { padding: 36px 40px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
-  .video-badge { display: inline-flex; background: rgba(234,46,0,0.2); color: var(--orange); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; width: fit-content; }
-  .video-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 26px; line-height: 1.1; color: var(--cream-light); letter-spacing: -0.01em; }
-  .video-title-sm { font-size: 20px; }
-  .video-desc { font-size: 14px; line-height: 1.65; color: rgba(241,228,204,0.6); font-weight: 500; }
-  .video-watch { display: inline-flex; align-items: center; gap: 6px; color: var(--teal); font-weight: 700; font-size: 13px; margin-top: 4px; }
-  .video-watch:hover { color: var(--cream-light); }
-
-  .side-videos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .video-card-small { background: var(--ink-card); border-radius: 16px; overflow: hidden; }
-  .video-card-small .video-meta { padding: 22px 26px; gap: 10px; }
-
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-  .about-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 52px; line-height: 1.0; letter-spacing: -0.02em; margin-bottom: 18px; }
-  .about-heading span { color: var(--orange); }
-  .about-body { font-size: 17px; line-height: 1.65; color: rgba(42,35,29,0.8); font-weight: 500; margin-bottom: 24px; }
-  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
-  .tag { font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 999px; }
-  .tag-orange { background: rgba(234,46,0,0.12); color: var(--orange); }
-  .tag-teal { background: rgba(157,189,184,0.3); color: var(--ink); }
-  .tag-ink { background: rgba(42,35,29,0.08); color: var(--ink); }
-  .about-visual { background: var(--ink); border-radius: 20px; padding: 44px; display: flex; flex-direction: column; gap: 20px; }
-  .stat { border-bottom: 1px solid rgba(241,228,204,0.1); padding-bottom: 20px; }
-  .stat:last-child { border-bottom: none; padding-bottom: 0; }
-  .stat-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 44px; color: var(--orange); letter-spacing: -0.02em; }
-  .stat-label { font-size: 12px; font-weight: 600; color: rgba(241,228,204,0.45); margin-top: 2px; letter-spacing: 0.07em; text-transform: uppercase; }
-
-  .contact-section { background: var(--orange); padding: 72px 96px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-  .contact-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 48px; color: var(--cream-light); letter-spacing: -0.02em; line-height: 1.05; }
-  .contact-note { font-size: 15px; color: rgba(241,228,204,0.85); font-weight: 500; max-width: 420px; line-height: 1.6; margin-top: 12px; }
-  .btn-cream { background: var(--cream-light); color: var(--orange); font-weight: 800; font-size: 14px; padding: 14px 28px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
-  .btn-cream:hover { background: #fff; }
-
-  footer { background: var(--ink); padding: 36px 96px; display: flex; align-items: center; justify-content: space-between; }
-  .footer-brand { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 20px; color: var(--cream-light); }
-  .footer-links { display: flex; gap: 28px; font-size: 13px; font-weight: 600; color: rgba(241,228,204,0.35); }
-  .footer-links a:hover { color: var(--cream-light); }
-  .footer-copy { font-size: 12px; color: rgba(241,228,204,0.2); }
-
-  @media (max-width: 860px) {
-    nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .hero { padding: 48px 24px 56px; grid-template-columns: 1fr; }
-    .hero-logo-wrap { width: 160px; height: 160px; margin: 0 auto; }
-    .hero-heading { font-size: 44px; }
-    .section { padding: 52px 24px; }
-    .video-card-featured { grid-template-columns: 1fr; }
-    .side-videos { grid-template-columns: 1fr; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .contact-section { padding: 48px 24px; flex-direction: column; align-items: flex-start; }
-    footer { padding: 28px 24px; flex-direction: column; gap: 16px; text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; }
-  }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
 
-<nav>
-  <div class="nav-logo">
-    <img src="https://yt3.googleusercontent.com/ytc/APkrFKZWeMCsx4Q9e_Pk9CPfdnVuLOt7wTuKCGkpbsKpCg=s176-c-k-c0x00ffffff-no-rj" alt="ArcRender" onerror="this.style.display='none'">
-    <span class="nav-logo-text">ArcRender</span>
-  </div>
-  <div class="nav-links">
-    <a href="#videos">Videos</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <a class="nav-cta" href="https://www.youtube.com/@ArcRender?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
-</nav>
+<helmet>
+  <title>ArcRender: Long-Form Tech Content for Brand Partners</title>
+  <meta name="description" content="ArcRender is a high-retention, long-form tech and gadget review channel built for brand partnerships. Prestige content, deep-attention audiences, and stronger D7-D28 ROAS than impression-based campaigns. Limited sponsorship slots available.">
+  <meta name="keywords" content="YouTube sponsorship, brand partnership, tech channel advertising, long-form content advertising, high retention audience, creator sponsorship, D7 ROAS, D28 ROAS, gadget review sponsorship, prestige content marketing, influencer marketing alternative, ArcRender, tech YouTube advertising, high completion rate audience">
+  <meta property="og:title" content="ArcRender for Brands: Long-Form Prestige Tech Content">
+  <meta property="og:description" content="A high-growth, high-retention tech channel built for advertisers who want attention, not just impressions. Limited sponsorship slots available.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arcrender.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EDE0C8; }
+    a { text-decoration: none; }
+    ::selection { background: #EA2E00; color: #F1E4CC; }
+  </style>
+</helmet>
 
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">Tech and Gadgets</div>
-    <h1 class="hero-heading">Outside<br><span>the spec sheet.</span></h1>
-    <p class="hero-sub">Honest reviews, switcher stories, and a deep dive into whatever weird, wonderful piece of tech caught the eye this week.</p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="https://www.youtube.com/@ArcRender" target="_blank" rel="noopener">&#9654; Watch on YouTube</a>
-      <a class="btn-ghost" href="#contact">Business Inquiries</a>
+<div style="font-family:'Manrope',sans-serif;color:#2A231D;background:#EDE0C8;overflow:hidden;">
+
+  <!-- NAV -->
+  <nav style="background:#2A231D;padding:18px 64px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:14px;column-gap:24px;">
+    <div style="display:flex;align-items:center;gap:14px;flex-shrink:0;">
+      <img src="icon.jpg" alt="ArcRender icon" style="width:40px;height:40px;border-radius:10px;object-fit:cover;">
+      <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:21px;color:#F1E4CC;letter-spacing:-0.02em;white-space:nowrap;">ArcRender</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#9DBDB8;border:1px solid rgba(157,189,184,0.35);border-radius:999px;padding:4px 10px;margin-left:6px;white-space:nowrap;">For Brands</span>
     </div>
-  </div>
-  <div class="hero-logo-wrap">
-    <img src="Icon_V_4.jpg" alt="ArcRender logo">
-  </div>
-</section>
-
-<section class="section section-dark" id="videos">
-  <div class="section-label">Latest uploads</div>
-  <h2 class="section-heading section-heading-light">From the channel</h2>
-
-  <div class="video-card-featured">
-    <div class="video-embed">
-      <iframe src="https://www.youtube.com/embed/yKpp80Ps-uk" title="I Bought a $150 Mac Pro" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    <div style="display:flex;gap:22px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(241,228,204,0.5);white-space:nowrap;flex-wrap:wrap;">
+      <a href="#why" style="color:inherit;">Why Sponsor</a>
+      <a href="#metrics" style="color:inherit;">Metrics</a>
+      <a href="#pipeline" style="color:inherit;">Pipeline</a>
+      <a href="#partner" style="color:inherit;">Partner</a>
     </div>
-    <div class="video-meta">
-      <span class="video-badge">Newest</span>
-      <h3 class="video-title">I Bought a $150 Mac Pro. Its Kinda Amazing.</h3>
-      <p class="video-desc">Apple's most powerful computer from 2013 now costs less than a stick of DDR5 RAM. Can it still game? Is it usable as a daily driver? This is what happens when you actually live with it.</p>
-      <a class="video-watch" href="https://www.youtube.com/watch?v=yKpp80Ps-uk" target="_blank" rel="noopener">Watch on YouTube &#8594;</a>
-    </div>
-  </div>
+    <a href="https://www.youtube.com/@ArcRender?sub_confirmation=1" target="_blank" rel="noopener" style="background:#EA2E00;color:#F1E4CC;font-weight:700;font-size:13px;padding:11px 22px;border-radius:999px;white-space:nowrap;flex-shrink:0;">Watch Now</a>
+  </nav>
 
-  <div class="side-videos">
-    <div class="video-card-small">
-      <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/OOotaUi42hA" title="This Phone Made Me Switch to Android" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-      </div>
-      <div class="video-meta">
-        <h3 class="video-title video-title-sm">This Phone Made Me Switch to Android</h3>
-        <p class="video-desc">After nearly a decade on iPhone, I switched to the Sony Xperia 1 VII. A phone Sony does not even sell in North America.</p>
-        <a class="video-watch" href="https://www.youtube.com/watch?v=OOotaUi42hA" target="_blank" rel="noopener">Watch &#8594;</a>
+  <!-- HERO -->
+  <section style="background-image:linear-gradient(90deg,#2A231D 0%,#2A231D 30%,rgba(42,35,29,0.75) 55%,rgba(42,35,29,0.15) 85%),url('assets/header-steamdeck.jpg');background-size:cover;background-repeat:no-repeat;background-color:#2A231D;background-position:center;padding:96px 64px 88px;display:grid;grid-template-columns:1.2fr auto;gap:64px;align-items:center;">
+    <div style="display:flex;flex-direction:column;gap:26px;">
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9DBDB8;">Sponsorship &amp; Brand Partnerships</span>
+      <h1 style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:68px;line-height:1.02;color:#F1E4CC;letter-spacing:-0.02em;margin:0;">
+        Outside<br><span style="color:#EA2E00;">the spec sheet.</span>
+      </h1>
+      <p style="font-size:18px;line-height:1.6;color:rgba(241,228,204,0.75);max-width:560px;font-weight:500;margin:0;">
+        ArcRender makes long-form, prestige-quality tech content for viewers who actually finish the video and act on it days later. That's the audience behavior that drives D7–D28 ROAS, not a one-second impression.
+      </p>
+      <div style="display:flex;gap:14px;align-items:center;margin-top:6px;">
+        <a href="#partner" style="background:#EA2E00;color:#F1E4CC;font-weight:800;font-size:14px;padding:15px 30px;border-radius:999px;">Discuss a Partnership</a>
+        <a href="#metrics" style="border:1.5px solid rgba(241,228,204,0.25);color:rgba(241,228,204,0.75);font-weight:700;font-size:14px;padding:14px 26px;border-radius:999px;">See the Numbers</a>
       </div>
     </div>
-    <div class="video-card-small">
-      <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/4oLPmMk7JFc" title="The $399 PS4 Challenge" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-      </div>
-      <div class="video-meta">
-        <h3 class="video-title video-title-sm">The Better 3DS?</h3>
-        <p class="video-desc">Could a PS Vita replace the 3DS in 2025? A full look at the handheld Sony gave up on too soon.</p>
-        <a class="video-watch" href="https://www.youtube.com/watch?v=4oLPmMk7JFc" target="_blank" rel="noopener">Watch &#8594;</a>
-      </div>
+    <div style="width:260px;height:260px;border-radius:50%;overflow:hidden;flex-shrink:0;border:3px solid rgba(241,228,204,0.08);">
+      <img src="icon.jpg" alt="ArcRender channel icon" style="width:100%;height:100%;object-fit:cover;">
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section" id="about">
-  <div class="about-grid">
+  <!-- STAT STRIP -->
+  <section style="background:#F1E4CC;padding:36px 64px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background-color:rgba(42,35,29,0.1);">
+    <div style="background:#F8EFDC;border-radius:16px;padding:20px 32px;text-align:center;">
+      <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:34px;color:#EA2E00;">116K+</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(42,35,29,0.55);margin-top:4px;">Views, debut video</div>
+    </div>
+    <div style="background:#F8EFDC;border-radius:16px;padding:20px 32px;text-align:center;">
+      <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:34px;color:#EA2E00;">Early-stage</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(42,35,29,0.55);margin-top:4px;">High-growth trajectory</div>
+    </div>
+    <div style="background:#F8EFDC;border-radius:16px;padding:20px 32px;text-align:center;">
+      <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:34px;color:#EA2E00;">3–4 wks</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(42,35,29,0.55);margin-top:4px;">Release cadence</div>
+    </div>
+    <div style="background:#F8EFDC;border-radius:16px;padding:20px 32px;text-align:center;">
+      <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:34px;color:#EA2E00;">Limited</div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(42,35,29,0.55);margin-top:4px;">Slots per release</div>
+    </div>
+  </section>
+
+  <!-- RECENT UPLOADS -->
+  <section style="padding:96px 64px 0;display:flex;flex-direction:column;gap:44px;">
     <div>
-      <div class="section-label">About the channel</div>
-      <h2 class="about-heading">Honest takes.<br><span>No hype.</span></h2>
-      <p class="about-body">ArcRender covers tech the way a knowledgeable friend would. Warm, direct, and focused on what a gadget actually feels like to live with, not just what the box says.</p>
-      <div class="tags">
-        <span class="tag tag-orange">Warm</span>
-        <span class="tag tag-teal">Playful</span>
-        <span class="tag tag-ink">Trustworthy</span>
-      </div>
-      <a class="btn-primary" href="https://www.youtube.com/@ArcRender?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#EA2E00;">From the channel</span>
+      <h2 style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:42px;letter-spacing:-0.01em;margin:10px 0 0;max-width:760px;">Recent uploads.</h2>
     </div>
-    <div class="about-visual">
-      <div class="stat">
-        <div class="stat-num">116K+</div>
-        <div class="stat-label">Views on debut video</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <a href="https://www.youtube.com/watch?v=yKpp80Ps-uk" target="_blank" rel="noopener" style="color:inherit;background:#2A231D;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+        <img src="https://img.youtube.com/vi/yKpp80Ps-uk/hqdefault.jpg" alt="I Bought a $150 Mac Pro. Its Kinda Amazing." style="width:100%;aspect-ratio:16/9;object-fit:cover;">
+        <div style="padding:24px;display:flex;flex-direction:column;gap:10px;">
+          <span style="color: #F1E4CC; font-weight: 700; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; width: fit-content; background-color: #EA2E00; opacity: 1">Most Recent</span>
+          <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:18px;color:#F1E4CC;line-height:1.2;">I Bought a $150 Mac Pro. Its Kinda Amazing.</span>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:rgba(241,228,204,0.6);">Apple's most powerful computer from 2013 now costs less than a stick of DDR5 RAM. Can it still game? Is it usable as a daily driver? This is what happens when you actually live with it.</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=OOotaUi42hA" target="_blank" rel="noopener" style="color:inherit;background:#2A231D;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+        <img src="https://img.youtube.com/vi/OOotaUi42hA/hqdefault.jpg" alt="This Phone Made Me Switch to Android" style="width:100%;aspect-ratio:16/9;object-fit:cover;">
+        <div style="padding:24px;display:flex;flex-direction:column;gap:10px;">
+          <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:18px;color:#F1E4CC;line-height:1.2;">This Phone Made Me Switch to Android</span>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:rgba(241,228,204,0.6);">After nearly a decade on iPhone, I switched to the Sony Xperia 1 VII. A phone Sony does not even sell in North America.</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=4oLPmMk7JFc" target="_blank" rel="noopener" style="color:inherit;background:#2A231D;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+        <img src="https://img.youtube.com/vi/4oLPmMk7JFc/hqdefault.jpg" alt="The Better 3DS?" style="width:100%;aspect-ratio:16/9;object-fit:cover;">
+        <div style="padding:24px;display:flex;flex-direction:column;gap:10px;">
+          <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:18px;color:#F1E4CC;line-height:1.2;">The Better 3DS?</span>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:rgba(241,228,204,0.6);">Exploring the AYN Thor and why the community loves this tiny android device. But, is it worth it?</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- WHY SPONSOR -->
+  <section id="why" style="padding:96px 64px;display:flex;flex-direction:column;gap:52px;">
+    <div>
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#EA2E00;">Why sponsor ArcRender</span>
+      <h2 style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:42px;letter-spacing:-0.01em;margin:10px 0 0;max-width:760px;">Prestige, long-form content built for retention, not a scroll-past impression.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+      <div style="background:#2A231D;border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:16px;">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(241,228,204,0.4);">Typical impression campaign</span>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:16px;line-height:1.5;color:rgba(241,228,204,0.65);">
+          <li>• Short-form, skippable, forgettable</li>
+          <li>• Optimized for views, not comprehension</li>
+          <li>• Audience attention span measured in seconds</li>
+          <li>• Conversion decays sharply after impression</li>
+        </ul>
       </div>
-      <div class="stat">
-        <div class="stat-num">1.6K</div>
-        <div class="stat-label">Subscribers and growing</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">10</div>
-        <div class="stat-label">Videos published</div>
+      <div style="background:#EA2E00;border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:16px;">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(241,228,204,0.75);">ArcRender partnership</span>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:16px;line-height:1.5;color:#F1E4CC;font-weight:600;">
+          <li>• Long-form, well-researched, rewatched</li>
+          <li>• Integrated where the audience is already leaning in</li>
+          <li>• Viewers who finish 15+ minute videos, by choice</li>
+          <li>• Consideration extends well past day one, built for D7–D28 conversion windows</li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="contact-section" id="contact">
-  <div>
-    <h2 class="contact-heading">Business<br>Inquiries.</h2>
-    <p class="contact-note">Paid integrations within existing long-form videos only. Not currently accepting gifting-only collaborations or dedicated sponsored content.</p>
-  </div>
-  <a class="btn-cream" href="mailto:arc@arcrender.net">arc@arcrender.net</a>
-</section>
+  <!-- METRICS / AUDIENCE -->
+  <section id="metrics" style="background:#2A231D;padding:96px 64px;display:flex;flex-direction:column;gap:52px;">
+    <div>
+      <span style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9DBDB8;">The audience</span>
+      <h2 style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:42px;color:#F1E4CC;letter-spacing:-0.01em;margin:10px 0 0;max-width:760px;">High-attention viewers, researching before they buy.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <div style="background:#362D25;border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:10px;">
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:26px;color:#F1E4CC;">Deliberate switchers</span>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:rgba(241,228,204,0.6);">Viewers actively comparing products before a purchase decision, the exact moment a sponsor message lands with intent.</p>
+      </div>
+      <div style="background:#362D25;border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:10px;">
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:26px;color:#F1E4CC;">Full-video watchers</span>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:rgba(241,228,204,0.6);">Long-form format self-selects for an audience that stays, not one that bounces after a hook.</p>
+      </div>
+      <div style="background:#362D25;border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:10px;">
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:26px;color:#F1E4CC;">Compounding reach</span>
+        <p style="margin:0;font-size:14px;line-height:1.6;color:rgba(241,228,204,0.6);">Early-growth channel: a partnership today keeps working as the catalog and subscriber base scale.</p>
+      </div>
+    </div>
+    <div style="background:rgba(157,189,184,0.12);border:1px solid rgba(157,189,184,0.3);border-radius:16px;padding:28px 36px;font-size:15px;line-height:1.6;color:#9DBDB8;font-weight:600;">
+      Full audience retention, watch-time, and conversion data available in the media kit, sent directly to partners upon request.
+    </div>
+  </section>
 
-<footer>
-  <div class="footer-brand">ArcRender</div>
-  <div class="footer-links">
-    <a href="https://www.youtube.com/@ArcRender" target="_blank" rel="noopener">YouTube</a>
-    <a href="mailto:arc@arcrender.net">Email</a>
-    <a href="https://arcrender.net">arcrender.net</a>
-  </div>
-  <div class="footer-copy">&#169; 2026 ArcRender</div>
-</footer>
+  <!-- PIPELINE -->
+  <section id="pipeline" style="padding:96px 64px;display:flex;flex-direction:column;gap:52px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;">
+      <div>
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#EA2E00;">In production</span>
+        <h2 style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:42px;letter-spacing:-0.01em;margin:10px 0 0;max-width:640px;">Several long-form projects are already in the works.</h2>
+      </div>
+      <p style="font-size:15px;line-height:1.6;color:rgba(42,35,29,0.65);max-width:340px;margin:0;">New releases land roughly every 3–4 weeks. As the brand is actively being built, partners are selected carefully, so slots stay limited to sponsors who are the right fit. Reach out to check current availability.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <div style="background:#F1E4CC;border:1.5px dashed rgba(42,35,29,0.3);border-radius:20px;padding:30px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(42,35,29,0.4);">Project 1 · In edit · Live end of month</span>
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:20px;">The Rise of Forgotten Hardware</span>
+        <span style="font-size:13px;color:rgba(42,35,29,0.55);">Slot: Open on Request</span>
+      </div>
+      <div style="background:#F1E4CC;border:1.5px dashed rgba(42,35,29,0.3);border-radius:20px;padding:30px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(42,35,29,0.4);">Project 2 · Filming · Early next month</span>
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:20px;">Essential Software for Back to School</span>
+        <span style="font-size:13px;color:rgba(42,35,29,0.55);">Slot: Open on Request</span>
+      </div>
+      <div style="background:#F1E4CC;border:1.5px dashed rgba(42,35,29,0.3);border-radius:20px;padding:30px;display:flex;flex-direction:column;gap:14px;">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(42,35,29,0.4);">Project 3 · Scripting · Late next month</span>
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:20px;">Details under wraps</span>
+        <span style="font-size:13px;color:rgba(42,35,29,0.55);">Slot: Full</span>
+      </div>
+    </div>
+  </section>
 
+  <!-- CONTACT -->
+  <section id="partner" style="background:#EA2E00;padding:80px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;">
+    <div>
+      <h2 style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:46px;color:#F1E4CC;letter-spacing:-0.02em;line-height:1.05;margin:0;">Get in early.<br>Grow with the channel.</h2>
+      <p style="font-size:15px;color:rgba(241,228,204,0.9);font-weight:500;max-width:460px;line-height:1.6;margin-top:14px;">Sponsorship slots are limited per release and allocated by request. Reach out for the current media kit, availability, and rates.</p>
+    </div>
+    <a href="mailto:arc@arcrender.net?subject=Sponsorship%20Inquiry" style="background:#F1E4CC;color:#EA2E00;font-weight:800;font-size:15px;padding:16px 32px;border-radius:999px;white-space:nowrap;flex-shrink:0;">arc@arcrender.net</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#2A231D;padding:44px 64px 36px;display:flex;flex-direction:column;gap:24px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="icon.jpg" alt="ArcRender" style="width:32px;height:32px;border-radius:8px;object-fit:cover;">
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:18px;color:#F1E4CC;">ArcRender</span>
+      </div>
+      <div style="display:flex;gap:26px;font-size:13px;font-weight:600;color:rgba(241,228,204,0.35);">
+        <a href="https://www.youtube.com/@ArcRender" target="_blank" rel="noopener" style="color:inherit;">YouTube</a>
+        <a href="mailto:arc@arcrender.net" style="color:inherit;">Email</a>
+        <a href="https://arcrender.net" style="color:inherit;">arcrender.net</a>
+      </div>
+    </div>
+    <p style="font-size:12px;line-height:1.7;color:rgba(241,228,204,0.25);max-width:900px;margin:0;">
+      ArcRender is a long-form tech and gadget review channel specializing in honest reviews, in-depth switcher stories, and prestige-quality video essays for brand partnerships and YouTube sponsorships. High-retention, high-completion-rate content built for advertisers seeking stronger D7 through D28 ROAS versus traditional impression-based ad campaigns.
+    </p>
+    <div style="font-size:12px;color:rgba(241,228,204,0.2);">© 2026 ArcRender · Brand Partnerships &amp; Sponsorship Inquiries</div>
+  </footer>
+
+</div>
+
+</x-dc>
 </body>
 </html>
