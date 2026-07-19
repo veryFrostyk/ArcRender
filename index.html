@@ -42,12 +42,15 @@
   .nav-cta { background: var(--orange); color: var(--cream-light); font-weight: 700; font-size: 13px; padding: 10px 22px; border-radius: 999px; }
   .nav-cta:hover { opacity: 0.9; }
 
-  .hero { background: var(--ink); padding: 80px 96px 88px; display: flex; flex-direction: column; gap: 28px; }
+  .hero { background: var(--ink); padding: 80px 96px 88px; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+  .hero-content { display: flex; flex-direction: column; gap: 28px; }
   .hero-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal); }
   .hero-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 80px; line-height: 0.98; color: var(--cream-light); letter-spacing: -0.02em; }
   .hero-heading span { color: var(--orange); }
   .hero-sub { font-size: 18px; line-height: 1.6; color: rgba(241,228,204,0.7); max-width: 560px; font-weight: 500; }
   .hero-actions { display: flex; gap: 14px; align-items: center; margin-top: 8px; }
+  .hero-logo-wrap { width: 280px; height: 280px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 3px solid rgba(241,228,204,0.08); }
+  .hero-logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
   .btn-primary { background: var(--orange); color: var(--cream-light); font-weight: 800; font-size: 14px; padding: 14px 28px; border-radius: 999px; display: inline-flex; align-items: center; gap: 8px; }
   .btn-primary:hover { opacity: 0.9; }
   .btn-ghost { border: 1.5px solid rgba(241,228,204,0.25); color: rgba(241,228,204,0.7); font-weight: 700; font-size: 14px; padding: 13px 24px; border-radius: 999px; }
@@ -104,7 +107,8 @@
   @media (max-width: 860px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
-    .hero { padding: 48px 24px 56px; }
+    .hero { padding: 48px 24px 56px; grid-template-columns: 1fr; }
+    .hero-logo-wrap { width: 160px; height: 160px; margin: 0 auto; }
     .hero-heading { font-size: 44px; }
     .section { padding: 52px 24px; }
     .video-card-featured { grid-template-columns: 1fr; }
@@ -132,12 +136,17 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-eyebrow">Tech and Gadgets</div>
-  <h1 class="hero-heading">Outside<br><span>the spec sheet.</span></h1>
-  <p class="hero-sub">Honest reviews, switcher stories, and a deep dive into whatever weird, wonderful piece of tech caught the eye this week.</p>
-  <div class="hero-actions">
-    <a class="btn-primary" href="https://www.youtube.com/@ArcRender" target="_blank" rel="noopener">&#9654; Watch on YouTube</a>
-    <a class="btn-ghost" href="#contact">Business Inquiries</a>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Tech and Gadgets</div>
+    <h1 class="hero-heading">Outside<br><span>the spec sheet.</span></h1>
+    <p class="hero-sub">Honest reviews, switcher stories, and a deep dive into whatever weird, wonderful piece of tech caught the eye this week.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://www.youtube.com/@ArcRender" target="_blank" rel="noopener">&#9654; Watch on YouTube</a>
+      <a class="btn-ghost" href="#contact">Business Inquiries</a>
+    </div>
+  </div>
+  <div class="hero-logo-wrap">
+    <img src="Icon_V_4.jpg" alt="ArcRender logo">
   </div>
 </section>
 
@@ -170,11 +179,11 @@
     </div>
     <div class="video-card-small">
       <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/4oLPmMk7JFc" title="The Better 3DS?" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <iframe src="https://www.youtube.com/embed/4oLPmMk7JFc" title="The $399 PS4 Challenge" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>
       <div class="video-meta">
         <h3 class="video-title video-title-sm">The Better 3DS?</h3>
-        <p class="video-desc">How much gaming can you get for the original PS4 launch price? A PS4 Pro, a stack of games, and one honest verdict.</p>
+        <p class="video-desc">Could a PS Vita replace the 3DS in 2025? A full look at the handheld Sony gave up on too soon.</p>
         <a class="video-watch" href="https://www.youtube.com/watch?v=4oLPmMk7JFc" target="_blank" rel="noopener">Watch &#8594;</a>
       </div>
     </div>
