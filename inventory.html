@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArcRender — Ad Inventory</title>
+<meta name="description" content="Current ArcRender ad inventory. Dedicated segments, end card segments, and description links available in upcoming long-form tech videos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Manrope', sans-serif; color: #2A231D; background: #EDE0C8; -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; color: inherit; }
+
+  nav {
+    background: #2A231D;
+    padding: 16px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-left { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .nav-left img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
+  .nav-wordmark { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 19px; color: #F1E4CC; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(241,228,204,0.5); }
+  .nav-links a:hover { color: #F1E4CC; }
+  .nav-cta { background: #EA2E00; color: #F1E4CC; font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: 999px; }
+
+  .hero { background: #2A231D; padding: 80px 64px 72px; }
+  .hero-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #9DBDB8; margin-bottom: 16px; }
+  .hero-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 64px; line-height: 1.0; color: #F1E4CC; letter-spacing: -0.02em; margin-bottom: 16px; }
+  .hero-heading span { color: #EA2E00; }
+  .hero-body { font-size: 17px; line-height: 1.65; color: rgba(241,228,204,0.65); max-width: 580px; font-weight: 500; }
+
+  .section { padding: 72px 64px; }
+  .section-dark { background: #2A231D; }
+  .section-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #EA2E00; margin-bottom: 10px; }
+  .section-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 36px; letter-spacing: -0.01em; margin-bottom: 40px; }
+  .section-heading-light { color: #F1E4CC; }
+
+  /* FORMAT CARDS */
+  .format-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 64px; }
+  .format-card { background: #F1E4CC; border-radius: 18px; padding: 32px; display: flex; flex-direction: column; gap: 14px; border: 1.5px solid rgba(42,35,29,0.08); }
+  .format-card-featured { background: #EA2E00; border-color: transparent; }
+  .format-icon { font-size: 28px; }
+  .format-name { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #2A231D; letter-spacing: -0.01em; }
+  .format-name-light { color: #F1E4CC; }
+  .format-desc { font-size: 14px; line-height: 1.65; color: rgba(42,35,29,0.7); }
+  .format-desc-light { color: rgba(241,228,204,0.85); }
+  .format-detail { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(42,35,29,0.4); }
+  .format-detail-light { color: rgba(241,228,204,0.55); }
+  .format-price { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 18px; color: #2A231D; margin-top: auto; }
+  .format-price-light { color: #F1E4CC; }
+
+  /* PIPELINE */
+  .pipeline-table { width: 100%; border-collapse: collapse; }
+  .pipeline-table th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(241,228,204,0.4); padding: 0 20px 16px; }
+  .pipeline-table td { padding: 20px; border-top: 1px solid rgba(241,228,204,0.08); font-size: 14px; font-weight: 600; color: #F1E4CC; vertical-align: middle; }
+  .pipeline-table tr:hover td { background: rgba(241,228,204,0.03); }
+  .status-pill { display: inline-flex; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
+  .status-open { background: rgba(157,189,184,0.2); color: #9DBDB8; border: 1px solid rgba(157,189,184,0.4); }
+  .status-filled { background: rgba(234,46,0,0.2); color: #EA2E00; border: 1px solid rgba(234,46,0,0.3); }
+  .slot-dots { display: flex; gap: 6px; }
+  .slot-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .slot-dot-filled { background: #EA2E00; }
+  .slot-dot-open { background: rgba(157,189,184,0.5); border: 1px solid #9DBDB8; }
+  .video-topic { color: #F1E4CC; font-weight: 700; }
+  .video-date { color: rgba(241,228,204,0.5); font-size: 13px; font-weight: 500; }
+
+  /* STATS */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 64px; }
+  .stat-box { background: #F1E4CC; border-radius: 14px; padding: 24px; text-align: center; }
+  .stat-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 32px; color: #EA2E00; }
+  .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(42,35,29,0.45); margin-top: 4px; }
+
+  /* CTA */
+  .cta-section { background: #EA2E00; padding: 72px 64px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .cta-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 44px; color: #F1E4CC; letter-spacing: -0.02em; line-height: 1.05; }
+  .cta-sub { font-size: 15px; color: rgba(241,228,204,0.85); font-weight: 500; max-width: 400px; line-height: 1.6; margin-top: 10px; }
+  .btn-cream { background: #F1E4CC; color: #EA2E00; font-weight: 800; font-size: 15px; padding: 16px 32px; border-radius: 999px; white-space: nowrap; }
+
+  footer { background: #2A231D; padding: 36px 64px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-brand { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 18px; color: #F1E4CC; }
+  .footer-links { display: flex; gap: 24px; font-size: 13px; font-weight: 600; color: rgba(241,228,204,0.35); flex-wrap: wrap; }
+  .footer-links a:hover { color: #F1E4CC; }
+  .footer-copy { font-size: 12px; color: rgba(241,228,204,0.2); }
+
+  @media (max-width: 860px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 56px 20px 64px; }
+    .hero-heading { font-size: 40px; }
+    .section { padding: 52px 20px; }
+    .format-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .pipeline-table th:nth-child(3), .pipeline-table td:nth-child(3) { display: none; }
+    .cta-section { padding: 52px 20px; flex-direction: column; align-items: flex-start; }
+    .cta-heading { font-size: 34px; }
+    footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <img src="icon.jpg" alt="ArcRender" onerror="this.style.display='none'">
+    <span class="nav-wordmark">ArcRender</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="partners.html">Partnerships</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="mailto:arc@arcrender.net?subject=Ad%20Inventory%20Inquiry">Inquire</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Ad Inventory</div>
+  <h1 class="hero-heading">Current<br><span>availability.</span></h1>
+  <p class="hero-body">Limited integration slots across upcoming long-form videos. Updated as projects are confirmed and slots are filled. All integrations are within existing videos, not dedicated sponsored content.</p>
+</section>
+
+<section class="section">
+  <div class="section-eyebrow">Channel performance</div>
+  <h2 class="section-heading">The numbers.</h2>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">116K+</div>
+      <div class="stat-label">Views, debut video</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">1.6K</div>
+      <div class="stat-label">Subscribers</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">3-4 wks</div>
+      <div class="stat-label">Release cadence</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">US, UK, DE</div>
+      <div class="stat-label">Top markets</div>
+    </div>
+  </div>
+
+  <div class="section-eyebrow">Integration formats</div>
+  <h2 class="section-heading">What is available.</h2>
+
+  <div class="format-grid">
+    <div class="format-card format-card-featured">
+      <div class="format-icon">🎬</div>
+      <div class="format-name format-name-light">Dedicated Segment</div>
+      <p class="format-desc format-desc-light">A standalone segment within the video fully focused on the product. Covers features, use case, and honest impressions. Typically 2 to 4 minutes. Appears mid-video where audience engagement is highest.</p>
+      <div class="format-detail format-detail-light">Best for: product launches, tech hardware, app features</div>
+      <div class="format-price format-price-light">Inquire for rates</div>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">🎞️</div>
+      <div class="format-name">End Card Segment</div>
+      <p class="format-desc">A brief brand mention at the end of the video after the main content concludes. Best for brands that want channel association without a deep product walkthrough.</p>
+      <div class="format-detail">Best for: apps, services, brand awareness</div>
+      <div class="format-price">Inquire for rates</div>
+    </div>
+    <div class="format-card">
+      <div class="format-icon">🔗</div>
+      <div class="format-name">Description Link</div>
+      <p class="format-desc">A tracked affiliate or partner link placed in the video description with a brief call out in the video. Ideal for products with strong purchase intent audiences.</p>
+      <div class="format-detail">Best for: affiliate programs, software, accessories</div>
+      <div class="format-price">Inquire for rates</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="section-eyebrow">Pipeline</div>
+  <h2 class="section-heading section-heading-light">Upcoming videos and slot availability.</h2>
+
+  <table class="pipeline-table">
+    <thead>
+      <tr>
+        <th>Video</th>
+        <th>Est. Publish</th>
+        <th>Slots available</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="video-topic">Essential Software for Back to School</div>
+          <div class="video-date">Budget apps and tools for students</div>
+        </td>
+        <td>Sep 3-4, 2026</td>
+        <td>
+          <div class="slot-dots">
+            <div class="slot-dot slot-dot-filled" title="Dedicated Segment: Filled"></div>
+            <div class="slot-dot slot-dot-open" title="End Card: Open"></div>
+            <div class="slot-dot slot-dot-open" title="Description Link: Open"></div>
+          </div>
+        </td>
+        <td><span class="status-pill status-filled">1 slot filled</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="video-topic">The PS Vita Experience</div>
+          <div class="video-date">Stock Vita deep dive before store closure</div>
+        </td>
+        <td>Late Aug / Early Sep 2026</td>
+        <td>
+          <div class="slot-dots">
+            <div class="slot-dot slot-dot-open" title="Dedicated Segment: Open"></div>
+            <div class="slot-dot slot-dot-open" title="End Card: Open"></div>
+            <div class="slot-dot slot-dot-open" title="Description Link: Open"></div>
+          </div>
+        </td>
+        <td><span class="status-pill status-open">All slots open</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="video-topic">New Tech Items for September</div>
+          <div class="video-date">Roundup of recent gadget pickups</div>
+        </td>
+        <td>September 2026</td>
+        <td>
+          <div class="slot-dots">
+            <div class="slot-dot slot-dot-filled" title="Dedicated Segment: Filled"></div>
+            <div class="slot-dot slot-dot-open" title="End Card: Open"></div>
+            <div class="slot-dot slot-dot-open" title="Description Link: Open"></div>
+          </div>
+        </td>
+        <td><span class="status-pill status-filled">1 slot filled</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="video-topic">The $399 PS4 Challenge</div>
+          <div class="video-date">How much gaming for the original PS4 launch price</div>
+        </td>
+        <td>October 2026</td>
+        <td>
+          <div class="slot-dots">
+            <div class="slot-dot slot-dot-open" title="Dedicated Segment: Open"></div>
+            <div class="slot-dot slot-dot-open" title="End Card: Open"></div>
+            <div class="slot-dot slot-dot-open" title="Description Link: Open"></div>
+          </div>
+        </td>
+        <td><span class="status-pill status-open">All slots open</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="cta-section" id="contact">
+  <div>
+    <h2 class="cta-heading">Interested in<br>a slot?</h2>
+    <p class="cta-sub">Reach out directly with your product and the video you are interested in. ArcRender works with brands only, no agencies.</p>
+  </div>
+  <a class="btn-cream" href="mailto:arc@arcrender.net?subject=Ad%20Inventory%20Inquiry">arc@arcrender.net</a>
+</section>
+
+<footer>
+  <div class="footer-brand">ArcRender</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="partners.html">Partnerships</a>
+    <a href="https://www.youtube.com/@ArcRender" target="_blank" rel="noopener">YouTube</a>
+    <a href="mailto:arc@arcrender.net">Email</a>
+  </div>
+  <div class="footer-copy">© 2026 ArcRender</div>
+</footer>
+
+</body>
+</html>
