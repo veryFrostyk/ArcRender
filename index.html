@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ArcRender: Long-Form Tech Content for Brand Partners</title>
-<meta name="description" content="ArcRender is a high-retention, long-form tech and gadget review channel built for brand partnerships. Prestige content, deep-attention audiences, and stronger D7-D28 ROAS than impression-based campaigns.">
+<meta name="description" content="ArcRender is a high-retention, long-form tech and gadget review channel built for brand partnerships. Handcrafted visuals, an honest on-camera presence, and stronger D7-D28 ROAS than impression-based campaigns.">
 <meta name="keywords" content="YouTube sponsorship, brand partnership, tech channel advertising, long-form content advertising, high retention audience, creator sponsorship, gadget review sponsorship, ArcRender, tech YouTube advertising">
 <meta property="og:title" content="ArcRender for Brands: Long-Form Prestige Tech Content">
 <meta property="og:description" content="A high-growth, high-retention tech channel built for advertisers who want attention, not just impressions. Limited sponsorship slots available.">
@@ -108,6 +108,21 @@
   .compare-list-muted li { color: rgba(241,228,204,0.65); }
   .compare-list-bright li { color: #F1E4CC; font-weight: 600; }
 
+  /* CRAFT (handcrafted visuals + honest presence) */
+  .craft { background: #F1E4CC; padding: 80px 64px; display: flex; flex-direction: column; gap: 48px; }
+  .craft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .craft-card { background: #F8EFDC; border-radius: 18px; padding: 36px; display: flex; flex-direction: column; gap: 14px; border-top: 3px solid #EA2E00; }
+  .craft-card-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #2A231D; }
+  .craft-card-body { font-size: 15px; line-height: 1.65; color: rgba(42,35,29,0.7); }
+
+  /* PROOF OF PERFORMANCE */
+  .proof { background: #F8EFDC; padding: 80px 64px; display: flex; flex-direction: column; gap: 40px; }
+  .proof-note { font-size: 14px; line-height: 1.6; color: rgba(42,35,29,0.65); max-width: 640px; margin-top: 12px; }
+  .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .proof-stat { background: #F1E4CC; border-radius: 14px; padding: 28px 24px; text-align: center; border-top: 3px solid #EA2E00; }
+  .proof-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 34px; color: #EA2E00; }
+  .proof-label { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: rgba(42,35,29,0.55); margin-top: 6px; }
+
   /* METRICS */
   .metrics { background: #2A231D; padding: 80px 64px; display: flex; flex-direction: column; gap: 48px; }
   .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -154,6 +169,10 @@
     .videos { padding: 64px 32px 0; }
     .video-grid { grid-template-columns: repeat(2, 1fr); }
     .why { padding: 64px 32px; }
+    .craft { padding: 64px 32px; }
+    .craft-grid { grid-template-columns: 1fr 1fr; }
+    .proof { padding: 64px 32px; }
+    .proof-grid { grid-template-columns: 1fr 1fr 1fr; }
     .metrics { padding: 64px 32px; }
     .audience-grid { grid-template-columns: 1fr 1fr; }
     .pipeline { padding: 64px 32px; }
@@ -187,6 +206,11 @@
     .compare-grid { grid-template-columns: 1fr; }
     .compare-card { padding: 28px; }
     .section-heading { font-size: 28px; }
+    .craft { padding: 52px 20px; }
+    .craft-grid { grid-template-columns: 1fr; }
+    .craft-card { padding: 28px; }
+    .proof { padding: 52px 20px; }
+    .proof-grid { grid-template-columns: 1fr; }
     .metrics { padding: 52px 20px; }
     .audience-grid { grid-template-columns: 1fr; }
     .pipeline { padding: 52px 20px; }
@@ -210,7 +234,7 @@
   </div>
   <div class="nav-links">
     <a href="#videos">Videos</a>
-    <a href="#about">About</a>
+    <a href="#craft">Why ArcRender</a>
     <a href="partners.html">Partnerships</a>
     <a href="inventory.html">Ad Inventory</a>
   </div>
@@ -236,50 +260,50 @@
 <!-- STATS -->
 <section class="stats">
   <div class="stat-card">
-    <div class="stat-num">183K+</div>
-    <div class="stat-label">Views, debut video</div>
+    <div class="stat-num">288K+</div>
+    <div class="stat-label">Lifetime channel views</div>
   </div>
   <div class="stat-card">
-    <div class="stat-num">Early-stage</div>
-    <div class="stat-label">High-growth trajectory</div>
+    <div class="stat-num">235K+</div>
+    <div class="stat-label">Views, top video</div>
   </div>
   <div class="stat-card">
-    <div class="stat-num">3-4 wks</div>
-    <div class="stat-label">Release cadence</div>
+    <div class="stat-num">7.4%</div>
+    <div class="stat-label">Avg thumbnail CTR</div>
   </div>
   <div class="stat-card">
-    <div class="stat-num">Limited</div>
-    <div class="stat-label">Slots per release</div>
+    <div class="stat-num">2,045</div>
+    <div class="stat-label">Subscribers, growing</div>
   </div>
 </section>
 
 <!-- VIDEOS -->
-<section class="videos">
+<section class="videos" id="videos">
   <div>
     <div class="section-eyebrow">From the channel</div>
     <h2 class="section-heading">Recent uploads.</h2>
   </div>
   <div class="video-grid">
-    <a href="https://www.youtube.com/watch?v=yrg6frc9Xlo" target="_blank" rel="noopener" class="video-card">
-      <img src="https://img.youtube.com/vi/yrg6frc9Xlo/hqdefault.jpg" alt="8 Mac Apps You'll Actually Use" loading="lazy">
+    <a href="https://www.youtube.com/@ArcRender" target="_blank" rel="noopener" class="video-card">
+      <img src="https://img.youtube.com/vi/watch?v=494Xtm3V9S8/hqdefault.jpg" alt="AR is Finally Worth It - RayNeo GT Max" loading="lazy">
       <div class="video-card-body">
-        <span class="video-newest">Newest</span>
-        <span class="video-title">8 Mac Apps You'll Actually Use</span>
-        <p class="video-desc">The best free and paid Mac apps for students and professionals. Five of them are completely free.</p>
+        <span class="video-newest">Newest · Sponsored</span>
+        <span class="video-title">AR is Finally Worth It. - RayNeo GT Max</span>
+        <p class="video-desc">A paid dedicated review built around the RayNeo GT Max launch at IFA Berlin. 14.4K views and a 5.9% click-through rate in its first 60 hours live.</p>
       </div>
     </a>
     <a href="https://www.youtube.com/watch?v=yKpp80Ps-uk" target="_blank" rel="noopener" class="video-card">
       <img src="https://img.youtube.com/vi/yKpp80Ps-uk/hqdefault.jpg" alt="I Bought a $150 Mac Pro" loading="lazy">
       <div class="video-card-body">
         <span class="video-title">I Bought a $150 Mac Pro. Its Kinda Amazing.</span>
-        <p class="video-desc">Apple's most powerful computer from 2013 now costs less than a stick of DDR5 RAM. Can it still game? Is it usable as a daily driver?</p>
+        <p class="video-desc">Apple's most powerful computer from 2013 now costs less than a stick of DDR5 RAM. The channel's top performer, at 235K+ views and climbing.</p>
       </div>
     </a>
     <a href="https://www.youtube.com/watch?v=OOotaUi42hA" target="_blank" rel="noopener" class="video-card">
-      <img src="https://img.youtube.com/vi/OOotaUi42hA/hqdefault.jpg" alt="This Phone Made Me Switch to Android" loading="lazy">
+      <img src="https://img.youtube.com/vi/OOotaUi42hA/hqdefault.jpg" alt="This Android Phone is Terrible, But I Love It" loading="lazy">
       <div class="video-card-body">
-        <span class="video-title">This Phone Made Me Switch to Android</span>
-        <p class="video-desc">After nearly a decade on iPhone, I switched to the Sony Xperia 1 VII. A phone Sony does not even sell in North America.</p>
+        <span class="video-title">This Android Phone is Terrible, But I Love It</span>
+        <p class="video-desc">After nearly a decade on iPhone, a switch to the Sony Xperia 1 VII, a phone Sony does not even sell in North America. 30K+ views.</p>
       </div>
     </a>
   </div>
@@ -313,6 +337,47 @@
   </div>
 </section>
 
+<!-- CRAFT: handcrafted visuals + honest, on-camera presence -->
+<section class="craft" id="craft">
+  <div>
+    <div class="section-eyebrow">The ArcRender difference</div>
+    <h2 class="section-heading">Handcrafted, and hosted by a real person.</h2>
+  </div>
+  <div class="craft-grid">
+    <div class="craft-card">
+      <span class="craft-card-title">Real, handcrafted visuals. No AI.</span>
+      <p class="craft-card-body">Every thumbnail, cut, and motion graphic on this channel is made by hand, not generated. That premium, deliberate look is what makes a video feel worth a viewer's time, and it is the same quality a sponsor's product is shown in. No shortcuts, no synthetic footage standing in for the real thing.</p>
+    </div>
+    <div class="craft-card">
+      <span class="craft-card-title">A face, not a voiceover.</span>
+      <p class="craft-card-body">ArcRender is hosted on camera, with an honest take on every product, good or bad. Putting a face to the content builds a kind of attachment a faceless ad read cannot: viewers trust the person before they trust the pitch, and that trust is what carries a sponsor's message past the video itself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF OF PERFORMANCE -->
+<section class="proof" id="proof">
+  <div>
+    <div class="section-eyebrow">Recent sponsorship, real numbers</div>
+    <h2 class="section-heading">A live case study: RayNeo GT Max.</h2>
+    <p class="proof-note">Published 3 September 2026 as a paid dedicated video for the RayNeo GT Max IFA Berlin launch. This is what the first 60 hours looked like, shared as-is, not cherry-picked after the fact.</p>
+  </div>
+  <div class="proof-grid">
+    <div class="proof-stat">
+      <div class="proof-num">14.4K</div>
+      <div class="proof-label">Views, first 60 hours</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-num">5.9%</div>
+      <div class="proof-label">Thumbnail click-through rate</div>
+    </div>
+    <div class="proof-stat">
+      <div class="proof-num">2:54</div>
+      <div class="proof-label">Average view duration</div>
+    </div>
+  </div>
+</section>
+
 <!-- METRICS -->
 <section class="metrics" id="metrics">
   <div>
@@ -326,14 +391,14 @@
     </div>
     <div class="audience-card">
       <div class="audience-card-title">Full-video watchers</div>
-      <p class="audience-card-body">Long-form format self-selects for an audience that stays, not one that bounces after a hook.</p>
+      <p class="audience-card-body">Recent uploads hold viewers to an average watch time north of 3 minutes, well past the point most short-form ads get skipped.</p>
     </div>
     <div class="audience-card">
-      <div class="audience-card-title">Compounding reach</div>
-      <p class="audience-card-body">Early-growth channel: a partnership today keeps working as the catalog and subscriber base scale.</p>
+      <div class="audience-card-title">Organic, not paid, discovery</div>
+      <p class="audience-card-body">84.9% of views come from YouTube's own recommendations, not shorts churn or paid boosting. The platform itself vouches for the content.</p>
     </div>
   </div>
-  <div class="data-note">Full audience retention, watch-time, and conversion data available in the media kit, sent directly to partners upon request.</div>
+  <div class="data-note">288K+ lifetime views, 13K+ watch hours, and 2.2M thumbnail impressions at a 7.4% average click-through rate. Full audience retention, watch-time, and conversion data available in the media kit, sent directly to partners upon request.</div>
 </section>
 
 <!-- PIPELINE -->
@@ -347,21 +412,30 @@
   </div>
   <div class="pipeline-grid">
     <div class="pipeline-card">
-      <span class="pipeline-status">Live now</span>
-      <span class="pipeline-title">8 Mac Apps You'll Actually Use</span>
-      <span class="pipeline-slot">Slot: Full</span>
-    </div>
-    <div class="pipeline-card">
-      <span class="pipeline-status">Early Sep · All slots full</span>
+      <span class="pipeline-status">In production · All slots full</span>
       <span class="pipeline-title">What I Actually Carry Every Day</span>
       <span class="pipeline-slot">Slot: Full</span>
     </div>
     <div class="pipeline-card">
-      <span class="pipeline-status">Mid Sep · Prestige production · Slots open</span>
+      <span class="pipeline-status">In production</span>
+      <span class="pipeline-title">The 12-inch MacBook Nobody Wanted</span>
+      <span class="pipeline-slot">Slot: Open on Request</span>
+    </div>
+    <div class="pipeline-card">
+      <span class="pipeline-status">In production · Prestige piece · Slots open</span>
       <span class="pipeline-title">A forgotten handheld. A forgotten laptop.</span>
       <span class="pipeline-slot">Slot: Open on Request</span>
     </div>
   </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div>
+    <div class="contact-heading">Let's talk partnership.</div>
+    <p class="contact-body">Reach out directly, no agency required, to discuss a dedicated video, integration, or upcoming slot.</p>
+  </div>
+  <a class="btn-cream" href="mailto:arc@arcrender.net">arc@arcrender.net</a>
 </section>
 
 <!-- FOOTER -->
@@ -377,7 +451,7 @@
       <a href="https://arcrender.net">arcrender.net</a>
     </div>
   </div>
-  <p class="footer-seo">ArcRender is a long-form tech and gadget review channel specializing in honest reviews, in-depth switcher stories, and prestige-quality video content for brand partnerships and YouTube sponsorships. ArcRender works directly with brands only and does not work with talent agencies or management companies. High-retention, high-completion-rate content built for advertisers seeking stronger D7 through D28 ROAS versus traditional impression-based ad campaigns.</p>
+  <p class="footer-seo">ArcRender is a long-form tech and gadget review channel specializing in honest reviews, in-depth switcher stories, and prestige-quality video content for brand partnerships and YouTube sponsorships. Every visual is handcrafted, not AI-generated, and every review is hosted on camera by a real, honest presence. The channel has passed 288K lifetime views with a 7.4% average thumbnail click-through rate. ArcRender works directly with brands only and does not work with talent agencies or management companies. High-retention, high-completion-rate content built for advertisers seeking stronger D7 through D28 ROAS versus traditional impression-based ad campaigns.</p>
   <div class="footer-copy">© 2026 ArcRender · Brand Partnerships and Sponsorship Inquiries</div>
 </footer>
 
