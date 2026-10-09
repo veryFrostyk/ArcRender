@@ -72,7 +72,7 @@
     background: #F1E4CC;
     padding: 0 64px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 12px;
     padding-top: 24px;
     padding-bottom: 24px;
@@ -80,6 +80,7 @@
   .stat-card { background: #F8EFDC; border-radius: 14px; padding: 20px 24px; text-align: center; }
   .stat-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 30px; color: #EA2E00; }
   .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(42,35,29,0.5); margin-top: 4px; }
+  .stat-num-sm { font-size: clamp(16px, 1.7vw, 26px); }
 
   /* VIDEOS */
   .videos { padding: 80px 64px 0; display: flex; flex-direction: column; gap: 40px; }
@@ -166,6 +167,8 @@
     .hero-icon { width: 180px; height: 180px; }
     .hero-heading { font-size: 52px; }
     .stats { padding: 20px 32px; grid-template-columns: repeat(2, 1fr); }
+    .stat-card:last-child { grid-column: 1 / -1; }
+    .stat-num-sm { font-size: 30px; }
     .videos { padding: 64px 32px 0; }
     .video-grid { grid-template-columns: repeat(2, 1fr); }
     .why { padding: 64px 32px; }
@@ -273,6 +276,10 @@
   <div class="stat-card">
     <div class="stat-num">2.2K</div>
     <div class="stat-label">Subscribers, growing</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num stat-num-sm">US, UK, DE</div>
+    <div class="stat-label">Top markets</div>
   </div>
 </section>
 
