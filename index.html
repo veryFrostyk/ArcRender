@@ -75,6 +75,13 @@
   .video-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 19px; color: var(--ink); line-height: 1.25; }
   .video-desc { font-size: 15px; line-height: 1.6; color: var(--muted-dark); }
 
+  .video-grid { grid-template-columns: 1fr 1fr; }
+  .video-card:first-child { grid-column: 1 / -1; flex-direction: row; }
+  .video-card:first-child img { width: 62%; aspect-ratio: 16/9; flex-shrink: 0; }
+  .video-card:first-child .video-card-body { padding: 40px; justify-content: center; gap: 16px; }
+  .video-card:first-child .video-title { font-size: 30px; line-height: 1.15; letter-spacing: -0.01em; }
+  .video-card:first-child .video-desc { font-size: 17px; line-height: 1.65; }
+
   /* WHY */
   .why { padding-top: 24px; }
   .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -137,6 +144,8 @@
     .dark-mid { padding-top: 40px; padding-bottom: 40px; }
     .dark-last { padding-top: 40px; padding-bottom: 80px; }
     .video-grid { grid-template-columns: repeat(2, 1fr); }
+    .video-card:first-child .video-title { font-size: 24px; }
+    .video-card:first-child .video-card-body { padding: 28px; }
     .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
     .contact { padding: 72px 32px; }
     footer { padding: 40px 32px 28px; }
@@ -168,6 +177,11 @@
     .section-heading { font-size: 31px; }
     .section-sub { font-size: 16px; }
     .section-head { margin-bottom: 32px; }
+    .video-card:first-child { flex-direction: column; }
+    .video-card:first-child img { width: 100%; }
+    .video-card:first-child .video-card-body { padding: 24px; }
+    .video-card:first-child .video-title { font-size: 22px; }
+    .video-card:first-child .video-desc { font-size: 15px; }
     .video-grid, .compare-grid, .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
     .compare-card, .card { padding: 28px; }
     .contact { padding: 56px 20px; }
@@ -203,7 +217,7 @@
       <p class="hero-body">ArcRender makes long-form, prestige-quality tech content for viewers who actually finish the video and act on it days later. That is the audience behavior that drives D7 to D28 ROAS, not a one-second impression.</p>
       <div class="hero-actions">
         <a class="btn-orange" href="partners.html">Discuss a Partnership</a>
-        <a class="btn-outline" href="#metrics">See the Numbers</a>
+        <a class="btn-outline" href="inventory.html">Check Rates</a>
       </div>
     </div>
     <div class="hero-icon">
