@@ -71,7 +71,7 @@
   .video-card { background: var(--paper); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
   .video-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
   .video-card-body { padding: 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-  .video-newest { background: var(--ink); color: var(--cream); font-weight: 700; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; width: fit-content; }
+  .video-newest { background: var(--accent); color: var(--cream); font-weight: 700; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; width: fit-content; }
   .video-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 19px; color: var(--ink); line-height: 1.25; }
   .video-desc { font-size: 15px; line-height: 1.6; color: var(--muted-dark); }
 
@@ -89,7 +89,7 @@
   .compare-head { display: flex; align-items: center; gap: 14px; }
   .compare-icon { width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .compare-icon svg { width: 16px; height: 16px; }
-  .compare-icon-x { background: rgba(241,228,204,0.16); color: var(--cream); }
+  .compare-icon-x { background: var(--accent); color: var(--cream); }
   .compare-icon-check { background: var(--cream); color: var(--ink); }
   .compare-label { font-size: 15px; font-weight: 800; color: var(--cream); }
   .compare-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
@@ -98,6 +98,7 @@
   /* DARK BAND (craft, proof, audience) */
   .dark { background: var(--ink); }
   .dark-first { padding-top: 112px; padding-bottom: 56px; }
+  .big-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 44px; line-height: 1.1; letter-spacing: -0.02em; color: var(--cream); margin-bottom: 72px; }
   .dark-mid { padding-top: 56px; padding-bottom: 56px; }
   .dark-last { padding-top: 56px; padding-bottom: 112px; }
   .card-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -174,7 +175,8 @@
     .dark-first { padding-top: 64px; padding-bottom: 28px; }
     .dark-mid { padding-top: 28px; padding-bottom: 28px; }
     .dark-last { padding-top: 28px; padding-bottom: 64px; }
-    .section-heading { font-size: 31px; }
+    .section-heading, .big-title { font-size: 31px; }
+    .big-title { margin-bottom: 48px; }
     .section-sub { font-size: 16px; }
     .section-head { margin-bottom: 32px; }
     .video-card:first-child { flex-direction: column; }
@@ -303,6 +305,7 @@
 <!-- CRAFT -->
 <section class="section dark dark-first" id="craft">
   <div class="wrap">
+    <h2 class="big-title">Why sponsor.</h2>
     <div class="section-head">
       <div class="eyebrow eyebrow-light">The ArcRender difference</div>
       <h2 class="section-heading section-heading-light">Handcrafted, and hosted by a real person.</h2>
