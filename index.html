@@ -16,210 +16,162 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+  :root { --ink:#2A231D; --card-dark:#362D25; --cream:#F1E4CC; --paper:#F8EFDC; --accent:#EA2E00; --muted-dark:rgba(42,35,29,0.68); --muted-light:rgba(241,228,204,0.72); }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Manrope', sans-serif; color: #2A231D; background: #EDE0C8; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Manrope', sans-serif; color: var(--ink); background: var(--cream); -webkit-font-smoothing: antialiased; line-height: 1.5; }
   a { text-decoration: none; color: inherit; }
   img { display: block; max-width: 100%; }
-  ::selection { background: #EA2E00; color: #F1E4CC; }
+  ::selection { background: var(--accent); color: var(--cream); }
+  .wrap { max-width: 1120px; margin: 0 auto; }
 
   /* NAV */
-  nav {
-    background: #2A231D;
-    padding: 16px 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+  nav { background: var(--ink); padding: 14px 64px; display: flex; align-items: center; justify-content: space-between; gap: 12px; position: sticky; top: 0; z-index: 100; }
   .nav-left { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-  .nav-left img { width: 36px; height: 36px; border-radius: 8px; object-fit: cover; }
-  .nav-wordmark { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 19px; color: #F1E4CC; letter-spacing: -0.02em; }
-  .nav-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #9DBDB8; border: 1px solid rgba(157,189,184,0.35); border-radius: 999px; padding: 4px 10px; white-space: nowrap; }
-  .nav-links { display: flex; gap: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(241,228,204,0.5); }
-  .nav-links a:hover { color: #F1E4CC; }
-  .nav-cta { background: #EA2E00; color: #F1E4CC; font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
+  .nav-left img { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; }
+  .nav-wordmark { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 19px; color: var(--cream); letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 600; color: rgba(241,228,204,0.6); }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-cta { background: var(--accent); color: var(--cream); font-weight: 700; font-size: 13px; padding: 10px 20px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
 
   /* HERO */
-  .hero {
-    background-image: linear-gradient(90deg, #2A231D 0%, #2A231D 35%, rgba(42,35,29,0.8) 60%, rgba(42,35,29,0.2) 100%), url('assets/header-steamdeck.jpg');
-    background-size: cover;
-    background-position: center;
-    background-color: #2A231D;
-    padding: 96px 64px 88px;
-    display: grid;
-    grid-template-columns: 1.2fr auto;
-    gap: 48px;
-    align-items: center;
-  }
+  .hero { background-image: linear-gradient(90deg, #2A231D 0%, #2A231D 35%, rgba(42,35,29,0.8) 60%, rgba(42,35,29,0.2) 100%), url('assets/header-steamdeck.jpg'); background-size: cover; background-position: center; background-color: var(--ink); padding: 120px 64px 112px; }
+  .hero-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr auto; gap: 48px; align-items: center; }
   .hero-content { display: flex; flex-direction: column; gap: 24px; }
-  .hero-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #9DBDB8; }
-  .hero-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 64px; line-height: 1.02; color: #F1E4CC; letter-spacing: -0.02em; }
-  .hero-heading span { color: #EA2E00; }
-  .hero-body { font-size: 17px; line-height: 1.6; color: rgba(241,228,204,0.75); max-width: 520px; font-weight: 500; }
-  .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
-  .btn-orange { background: #EA2E00; color: #F1E4CC; font-weight: 800; font-size: 14px; padding: 14px 28px; border-radius: 999px; }
-  .btn-outline { border: 1.5px solid rgba(241,228,204,0.25); color: rgba(241,228,204,0.75); font-weight: 700; font-size: 14px; padding: 13px 24px; border-radius: 999px; }
-  .hero-icon { width: 240px; height: 240px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 3px solid rgba(241,228,204,0.08); }
+  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-dark); margin-bottom: 14px; }
+  .eyebrow-light { color: rgba(241,228,204,0.55); }
+  .hero .eyebrow { margin-bottom: 0; }
+  .hero-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 72px; line-height: 1.0; color: var(--cream); letter-spacing: -0.03em; }
+  .hero-heading span { color: var(--accent); }
+  .hero-body { font-size: 19px; line-height: 1.6; color: var(--muted-light); max-width: 540px; font-weight: 500; }
+  .hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 8px; }
+  .btn-orange { background: var(--accent); color: var(--cream); font-weight: 800; font-size: 15px; padding: 15px 30px; border-radius: 999px; }
+  .btn-outline { border: 1.5px solid rgba(241,228,204,0.3); color: var(--cream); font-weight: 700; font-size: 15px; padding: 14px 28px; border-radius: 999px; }
+  .hero-icon { width: 240px; height: 240px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
   .hero-icon img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* STAT STRIP */
-  .stats {
-    background: #F1E4CC;
-    padding: 0 64px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-  .stat-card { background: #F8EFDC; border-radius: 14px; padding: 20px 24px; text-align: center; }
-  .stat-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 30px; color: #EA2E00; }
-  .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(42,35,29,0.5); margin-top: 4px; }
-  .stat-num-sm { font-size: clamp(18px, 2.3vw, 30px); }
+  /* STATS */
+  .stats { padding: 56px 64px 8px; }
+  .stats-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+  .stat-card { background: var(--paper); border-radius: 20px; padding: 32px 20px; display: flex; flex-direction: column; justify-content: center; }
+  .stat-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 48px; letter-spacing: -0.02em; line-height: 1.1; color: var(--accent); }
+  .stat-num-sm { font-size: 34px; }
+  .stat-label { font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted-dark); margin-top: 10px; }
+
+  /* SECTIONS */
+  .section { padding: 96px 64px; }
+  .section-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 44px; line-height: 1.1; letter-spacing: -0.02em; max-width: 780px; }
+  .section-heading-light { color: var(--cream); }
+  .section-head { margin-bottom: 48px; }
+  .section-sub { font-size: 18px; line-height: 1.6; color: var(--muted-dark); max-width: 640px; margin-top: 16px; }
+  .section-sub-light { color: var(--muted-light); }
 
   /* VIDEOS */
-  .videos { padding: 80px 64px 0; display: flex; flex-direction: column; gap: 40px; }
-  .section-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #EA2E00; margin-bottom: 8px; }
-  .section-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 38px; letter-spacing: -0.01em; }
-  .section-heading-light { color: #F1E4CC; }
-  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .video-card { background: #2A231D; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; }
+  .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .video-card { background: var(--paper); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; }
   .video-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-  .video-card-body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-  .video-newest { background: #EA2E00; color: #F1E4CC; font-weight: 700; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; width: fit-content; }
-  .video-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 17px; color: #F1E4CC; line-height: 1.2; }
-  .video-desc { font-size: 13px; line-height: 1.6; color: rgba(241,228,204,0.6); }
+  .video-card-body { padding: 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .video-newest { background: var(--ink); color: var(--cream); font-weight: 700; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; width: fit-content; }
+  .video-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 19px; color: var(--ink); line-height: 1.25; }
+  .video-desc { font-size: 15px; line-height: 1.6; color: var(--muted-dark); }
 
-  /* WHY SPONSOR */
-  .why { padding: 80px 64px; display: flex; flex-direction: column; gap: 48px; }
-  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .compare-card { border-radius: 18px; padding: 36px; display: flex; flex-direction: column; gap: 14px; }
-  .compare-card-dark { background: #2A231D; }
-  .compare-card-orange { background: #EA2E00; }
-  .compare-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-  .compare-label-muted { color: rgba(241,228,204,0.4); }
-  .compare-label-light { color: rgba(241,228,204,0.75); }
-  .compare-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .compare-list li { font-size: 15px; line-height: 1.5; }
-  .compare-list-muted li { color: rgba(241,228,204,0.65); }
-  .compare-list-bright li { color: #F1E4CC; font-weight: 600; }
+  /* WHY */
+  .why { padding-top: 24px; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .compare-card { background: var(--ink); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; gap: 24px; }
+  .compare-head { display: flex; align-items: center; gap: 14px; }
+  .compare-icon { width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .compare-icon svg { width: 16px; height: 16px; }
+  .compare-icon-x { background: rgba(241,228,204,0.16); color: var(--cream); }
+  .compare-icon-check { background: var(--cream); color: var(--ink); }
+  .compare-label { font-size: 15px; font-weight: 800; color: var(--cream); }
+  .compare-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .compare-list li { font-size: 16px; line-height: 1.55; color: var(--muted-light); }
 
-  /* CRAFT (handcrafted visuals + honest presence) */
-  .craft { background: #F1E4CC; padding: 80px 64px; display: flex; flex-direction: column; gap: 48px; }
-  .craft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .craft-card { background: #F8EFDC; border-radius: 18px; padding: 36px; display: flex; flex-direction: column; gap: 14px; border-top: 3px solid #EA2E00; }
-  .craft-card-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #2A231D; }
-  .craft-card-body { font-size: 15px; line-height: 1.65; color: rgba(42,35,29,0.7); }
-
-  /* PROOF OF PERFORMANCE */
-  .proof { background: #F8EFDC; padding: 80px 64px; display: flex; flex-direction: column; gap: 40px; }
-  .proof-note { font-size: 14px; line-height: 1.6; color: rgba(42,35,29,0.65); max-width: 640px; margin-top: 12px; }
-  .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .proof-stat { background: #F1E4CC; border-radius: 14px; padding: 28px 24px; text-align: center; border-top: 3px solid #EA2E00; }
-  .proof-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 34px; color: #EA2E00; }
-  .proof-label { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: rgba(42,35,29,0.55); margin-top: 6px; }
-
-  /* METRICS */
-  .metrics { background: #2A231D; padding: 80px 64px; display: flex; flex-direction: column; gap: 48px; }
-  .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .audience-card { background: #362D25; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 10px; }
-  .audience-card-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #F1E4CC; }
-  .audience-card-body { font-size: 14px; line-height: 1.6; color: rgba(241,228,204,0.6); }
-  .data-note { background: rgba(157,189,184,0.12); border: 1px solid rgba(157,189,184,0.3); border-radius: 14px; padding: 24px 28px; font-size: 14px; line-height: 1.6; color: #9DBDB8; font-weight: 600; }
-
-  /* PIPELINE */
-  .pipeline { padding: 80px 64px; display: flex; flex-direction: column; gap: 48px; }
-  .pipeline-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; }
-  .pipeline-note { font-size: 14px; line-height: 1.6; color: rgba(42,35,29,0.65); max-width: 340px; }
-  .pipeline-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .pipeline-card { background: #F1E4CC; border: 1.5px dashed rgba(42,35,29,0.3); border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 12px; }
-  .pipeline-status { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(42,35,29,0.4); }
-  .pipeline-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 18px; color: #2A231D; }
-  .pipeline-slot { font-size: 13px; color: rgba(42,35,29,0.55); }
+  /* DARK BAND (craft, proof, audience) */
+  .dark { background: var(--ink); }
+  .dark-first { padding-top: 112px; padding-bottom: 56px; }
+  .dark-mid { padding-top: 56px; padding-bottom: 56px; }
+  .dark-last { padding-top: 56px; padding-bottom: 112px; }
+  .card-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { background: var(--cream); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; gap: 12px; }
+  .card-title { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 24px; line-height: 1.2; color: var(--ink); letter-spacing: -0.01em; }
+  .card-body { font-size: 16px; line-height: 1.65; color: var(--muted-dark); }
+  .card-stat { align-items: center; text-align: center; padding: 36px 24px; gap: 6px; }
+  .card-stat-num { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 48px; letter-spacing: -0.02em; color: var(--ink); line-height: 1.1; }
+  .card-stat-label { font-size: 14px; font-weight: 600; color: var(--muted-dark); }
+  .data-note { font-size: 15px; line-height: 1.6; color: var(--muted-light); max-width: 720px; margin-top: 32px; }
 
   /* CONTACT */
-  .contact { background: #EA2E00; padding: 80px 64px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-  .contact-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 44px; color: #F1E4CC; letter-spacing: -0.02em; line-height: 1.05; }
-  .contact-body { font-size: 15px; color: rgba(241,228,204,0.9); font-weight: 500; max-width: 460px; line-height: 1.6; margin-top: 12px; }
-  .btn-cream { background: #F1E4CC; color: #EA2E00; font-weight: 800; font-size: 15px; padding: 16px 32px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
+  .contact { background: var(--accent); padding: 96px 64px; }
+  .contact-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .contact-heading { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 48px; color: var(--cream); letter-spacing: -0.02em; line-height: 1.05; }
+  .contact-body { font-size: 17px; color: rgba(241,228,204,0.92); font-weight: 500; max-width: 480px; line-height: 1.6; margin-top: 14px; }
+  .btn-cream { background: var(--cream); color: var(--accent); font-weight: 800; font-size: 16px; padding: 18px 34px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
 
   /* FOOTER */
-  footer { background: #2A231D; padding: 44px 64px 32px; display: flex; flex-direction: column; gap: 20px; }
+  footer { background: var(--ink); padding: 48px 64px 36px; }
+  .footer-inner { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
   .footer-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
   .footer-brand { display: flex; align-items: center; gap: 10px; }
   .footer-brand img { width: 30px; height: 30px; border-radius: 7px; object-fit: cover; }
-  .footer-brand-name { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 17px; color: #F1E4CC; }
-  .footer-links { display: flex; gap: 24px; font-size: 13px; font-weight: 600; color: rgba(241,228,204,0.35); flex-wrap: wrap; }
-  .footer-links a:hover { color: #F1E4CC; }
-  .footer-seo { font-size: 12px; line-height: 1.7; color: rgba(241,228,204,0.2); max-width: 900px; }
-  .footer-copy { font-size: 12px; color: rgba(241,228,204,0.2); }
+  .footer-brand-name { font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 17px; color: var(--cream); }
+  .footer-links { display: flex; gap: 24px; font-size: 14px; font-weight: 600; color: rgba(241,228,204,0.55); flex-wrap: wrap; }
+  .footer-links a:hover { color: var(--cream); }
+  .footer-seo { font-size: 12px; line-height: 1.7; color: rgba(241,228,204,0.3); max-width: 900px; }
+  .footer-copy { font-size: 12px; color: rgba(241,228,204,0.3); }
 
   /* RESPONSIVE */
   @media (max-width: 1024px) {
     nav { padding: 14px 32px; }
-    .nav-links { display: none; }
-    .hero { padding: 64px 32px; grid-template-columns: 1fr auto; gap: 32px; }
+    .hero { padding: 80px 32px; }
+    .hero-inner { gap: 32px; }
     .hero-icon { width: 180px; height: 180px; }
-    .hero-heading { font-size: 52px; }
-    .stats { padding: 20px 32px; grid-template-columns: repeat(2, 1fr); }
-    .stat-num-sm { font-size: 30px; }
-    .videos { padding: 64px 32px 0; }
+    .hero-heading { font-size: 56px; }
+    .stats { padding: 40px 32px 8px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 72px 32px; }
+    .why { padding-top: 16px; }
+    .dark-first { padding-top: 80px; padding-bottom: 40px; }
+    .dark-mid { padding-top: 40px; padding-bottom: 40px; }
+    .dark-last { padding-top: 40px; padding-bottom: 80px; }
     .video-grid { grid-template-columns: repeat(2, 1fr); }
-    .why { padding: 64px 32px; }
-    .craft { padding: 64px 32px; }
-    .craft-grid { grid-template-columns: 1fr 1fr; }
-    .proof { padding: 64px 32px; }
-    .proof-grid { grid-template-columns: 1fr 1fr 1fr; }
-    .metrics { padding: 64px 32px; }
-    .audience-grid { grid-template-columns: 1fr 1fr; }
-    .pipeline { padding: 64px 32px; }
-    .pipeline-grid { grid-template-columns: 1fr 1fr; }
-    .contact { padding: 64px 32px; }
-    footer { padding: 36px 32px 28px; }
+    .card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .contact { padding: 72px 32px; }
+    footer { padding: 40px 32px 28px; }
   }
 
   @media (max-width: 680px) {
-    nav { padding: 14px 20px; }
-    .nav-badge { display: none; }
-    .hero {
-      background-image: linear-gradient(180deg, rgba(42,35,29,0.97) 0%, rgba(42,35,29,0.92) 100%), url('assets/header-steamdeck-mobile.jpg');
-      background-position: center top;
-      padding: 52px 20px 56px;
-      grid-template-columns: 1fr;
-      gap: 32px;
-      text-align: center;
-    }
+    nav { padding: 12px 20px; }
+    .nav-wordmark { font-size: 17px; }
+    .nav-links { gap: 16px; font-size: 13px; }
+    .nav-cta { display: none; }
+    .hero { background-image: linear-gradient(180deg, rgba(42,35,29,0.97) 0%, rgba(42,35,29,0.92) 100%), url('assets/header-steamdeck-mobile.jpg'); background-position: center top; padding: 64px 20px; }
+    .hero-inner { grid-template-columns: 1fr; text-align: center; }
     .hero-content { align-items: center; }
-    .hero-body { max-width: 100%; }
+    .hero-body { max-width: 100%; font-size: 17px; }
     .hero-actions { justify-content: center; }
-    .hero-icon { width: 140px; height: 140px; margin: 0 auto; }
-    .hero-heading { font-size: 40px; }
-    .stats { padding: 16px 20px; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .stat-card { padding: 16px; }
-    .stat-num { font-size: 24px; }
-    .stat-num-sm { font-size: 17px; }
-    .videos { padding: 52px 20px 0; }
-    .video-grid { grid-template-columns: 1fr; }
-    .why { padding: 52px 20px; }
-    .compare-grid { grid-template-columns: 1fr; }
-    .compare-card { padding: 28px; }
-    .section-heading { font-size: 28px; }
-    .craft { padding: 52px 20px; }
-    .craft-grid { grid-template-columns: 1fr; }
-    .craft-card { padding: 28px; }
-    .proof { padding: 52px 20px; }
-    .proof-grid { grid-template-columns: 1fr; }
-    .metrics { padding: 52px 20px; }
-    .audience-grid { grid-template-columns: 1fr; }
-    .pipeline { padding: 52px 20px; }
-    .pipeline-header { flex-direction: column; align-items: flex-start; }
-    .pipeline-grid { grid-template-columns: 1fr; }
-    .contact { padding: 52px 20px; flex-direction: column; align-items: flex-start; gap: 28px; }
+    .hero-icon { width: 120px; height: 120px; margin: 0 auto; }
+    .hero-heading { font-size: 44px; }
+    .stats { padding: 32px 20px 8px; }
+    .stats-grid { gap: 12px; }
+    .stat-card { padding: 22px 12px; }
+    .stat-num { font-size: 34px; }
+    .stat-num-sm { font-size: 24px; }
+    .stat-label { font-size: 11px; }
+    .section { padding: 56px 20px; }
+    .why { padding-top: 8px; }
+    .dark-first { padding-top: 64px; padding-bottom: 28px; }
+    .dark-mid { padding-top: 28px; padding-bottom: 28px; }
+    .dark-last { padding-top: 28px; padding-bottom: 64px; }
+    .section-heading { font-size: 31px; }
+    .section-sub { font-size: 16px; }
+    .section-head { margin-bottom: 32px; }
+    .video-grid, .compare-grid, .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
+    .compare-card, .card { padding: 28px; }
+    .contact { padding: 56px 20px; }
+    .contact-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
     .contact-heading { font-size: 36px; }
     footer { padding: 32px 20px 24px; }
     .footer-top { flex-direction: column; align-items: flex-start; }
@@ -233,7 +185,6 @@
   <div class="nav-left">
     <img src="icon.jpg" alt="ArcRender" onerror="this.style.display='none'">
     <span class="nav-wordmark">ArcRender</span>
-    <span class="nav-badge">For Brands</span>
   </div>
   <div class="nav-links">
     <a href="index.html">Home</a>
@@ -245,47 +196,40 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <span class="hero-eyebrow">Sponsorship and Brand Partnerships</span>
-    <h1 class="hero-heading">Outside<br><span>the spec sheet.</span></h1>
-    <p class="hero-body">ArcRender makes long-form, prestige-quality tech content for viewers who actually finish the video and act on it days later. That is the audience behavior that drives D7 to D28 ROAS, not a one-second impression.</p>
-    <div class="hero-actions">
-      <a class="btn-orange" href="partners.html">Discuss a Partnership</a>
-      <a class="btn-outline" href="#metrics">See the Numbers</a>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="eyebrow eyebrow-light">Sponsorship and Brand Partnerships</span>
+      <h1 class="hero-heading">Outside<br><span>the spec sheet.</span></h1>
+      <p class="hero-body">ArcRender makes long-form, prestige-quality tech content for viewers who actually finish the video and act on it days later. That is the audience behavior that drives D7 to D28 ROAS, not a one-second impression.</p>
+      <div class="hero-actions">
+        <a class="btn-orange" href="partners.html">Discuss a Partnership</a>
+        <a class="btn-outline" href="#metrics">See the Numbers</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-icon">
-    <img src="icon.jpg" alt="ArcRender channel icon" onerror="this.style.display='none'">
+    <div class="hero-icon">
+      <img src="icon.jpg" alt="ArcRender channel icon" onerror="this.style.display='none'">
+    </div>
   </div>
 </section>
 
 <!-- STATS -->
 <section class="stats">
-  <div class="stat-card">
-    <div class="stat-num">400K+</div>
-    <div class="stat-label">Top video views, all organic</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-num">7.4%</div>
-    <div class="stat-label">Avg thumbnail CTR</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-num">2.2K</div>
-    <div class="stat-label">Subscribers, growing</div>
-  </div>
-  <div class="stat-card">
-    <div class="stat-num stat-num-sm">US, UK, DE</div>
-    <div class="stat-label">Top markets</div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-num">400K+</div><div class="stat-label">Top video views, all organic</div></div>
+    <div class="stat-card"><div class="stat-num">7.4%</div><div class="stat-label">Avg thumbnail CTR</div></div>
+    <div class="stat-card"><div class="stat-num">2.2K</div><div class="stat-label">Subscribers, growing</div></div>
+    <div class="stat-card"><div class="stat-num stat-num-sm">US, UK, DE</div><div class="stat-label">Top markets</div></div>
   </div>
 </section>
 
 <!-- VIDEOS -->
-<section class="videos" id="videos">
-  <div>
-    <div class="section-eyebrow">From the channel</div>
-    <h2 class="section-heading">Recent uploads.</h2>
-  </div>
-  <div class="video-grid">
+<section class="section" id="videos">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">From the channel</div>
+      <h2 class="section-heading">Recent uploads.</h2>
+    </div>
+    <div class="video-grid">
     <a href="https://www.youtube.com/watch?v=494Xtm3V9S8" target="_blank" rel="noopener" class="video-card">
       <img src="https://img.youtube.com/vi/494Xtm3V9S8/hqdefault.jpg" alt="AR is Finally Worth It - RayNeo GT Max" loading="lazy">
       <div class="video-card-body">
@@ -309,18 +253,20 @@
       </div>
     </a>
   </div>
+  </div>
 </section>
 
 <!-- WHY SPONSOR -->
-<section class="why" id="why">
-  <div>
-    <div class="section-eyebrow">Why sponsor ArcRender</div>
-    <h2 class="section-heading">Prestige, long-form content built for retention, not a scroll-past impression.</h2>
-  </div>
-  <div class="compare-grid">
+<section class="section why" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Why sponsor ArcRender</div>
+      <h2 class="section-heading">Prestige, long-form content built for retention, not a scroll-past impression.</h2>
+    </div>
+    <div class="compare-grid">
     <div class="compare-card compare-card-dark">
-      <span class="compare-label compare-label-muted">Typical impression campaign</span>
-      <ul class="compare-list compare-list-muted">
+      <div class="compare-head"><span class="compare-icon compare-icon-x" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg></span><span class="compare-label">Typical impression campaign</span></div>
+      <ul class="compare-list">
         <li>Short-form, skippable, forgettable</li>
         <li>Optimized for views, not comprehension</li>
         <li>Audience attention span measured in seconds</li>
@@ -328,8 +274,8 @@
       </ul>
     </div>
     <div class="compare-card compare-card-orange">
-      <span class="compare-label compare-label-light">ArcRender partnership</span>
-      <ul class="compare-list compare-list-bright">
+      <div class="compare-head"><span class="compare-icon compare-icon-check" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></span><span class="compare-label">ArcRender partnership</span></div>
+      <ul class="compare-list">
         <li>Long-form, well-researched, rewatched</li>
         <li>Integrated where the audience is already leaning in</li>
         <li>Viewers who finish 15+ minute videos, by choice</li>
@@ -337,111 +283,84 @@
       </ul>
     </div>
   </div>
-</section>
-
-<!-- CRAFT: handcrafted visuals + honest, on-camera presence -->
-<section class="craft" id="craft">
-  <div>
-    <div class="section-eyebrow">The ArcRender difference</div>
-    <h2 class="section-heading">Handcrafted, and hosted by a real person.</h2>
-  </div>
-  <div class="craft-grid">
-    <div class="craft-card">
-      <span class="craft-card-title">Real, handcrafted visuals. No AI.</span>
-      <p class="craft-card-body">Every thumbnail, cut, and motion graphic on this channel is made by hand, not generated. That premium, deliberate look is what makes a video feel worth a viewer's time, and it is the same quality a sponsor's product is shown in. No shortcuts, no synthetic footage standing in for the real thing.</p>
-    </div>
-    <div class="craft-card">
-      <span class="craft-card-title">A face, not a voiceover.</span>
-      <p class="craft-card-body">ArcRender is hosted on camera, with an honest take on every product, good or bad. Putting a face to the content builds a kind of attachment a faceless ad read cannot: viewers trust the person before they trust the pitch, and that trust is what carries a sponsor's message past the video itself.</p>
-    </div>
   </div>
 </section>
 
-<!-- PROOF OF PERFORMANCE -->
-<section class="proof" id="proof">
-  <div>
-    <div class="section-eyebrow">Recent sponsorship, real numbers</div>
-    <h2 class="section-heading">A live case study: RayNeo GT Max.</h2>
-    <p class="proof-note">Published 3 September 2026 as a paid dedicated video for the RayNeo GT Max IFA Berlin launch. This is what the first 60 hours looked like, shared as-is, not cherry-picked after the fact.</p>
-  </div>
-  <div class="proof-grid">
-    <div class="proof-stat">
-      <div class="proof-num">14.4K</div>
-      <div class="proof-label">Views, first 60 hours</div>
+<!-- CRAFT -->
+<section class="section dark dark-first" id="craft">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-light">The ArcRender difference</div>
+      <h2 class="section-heading section-heading-light">Handcrafted, and hosted by a real person.</h2>
     </div>
-    <div class="proof-stat">
-      <div class="proof-num">5.9%</div>
-      <div class="proof-label">Thumbnail click-through rate</div>
-    </div>
-    <div class="proof-stat">
-      <div class="proof-num">2:54</div>
-      <div class="proof-label">Average view duration</div>
+    <div class="card-grid-2">
+      <div class="card">
+        <span class="card-title">Real, handcrafted visuals. No AI.</span>
+        <p class="card-body">Every thumbnail, cut, and motion graphic on this channel is made by hand, not generated. That premium, deliberate look is what makes a video feel worth a viewer's time, and it is the same quality a sponsor's product is shown in. No shortcuts, no synthetic footage standing in for the real thing.</p>
+      </div>
+      <div class="card">
+        <span class="card-title">A face, not a voiceover.</span>
+        <p class="card-body">ArcRender is hosted on camera, with an honest take on every product, good or bad. Putting a face to the content builds a kind of attachment a faceless ad read cannot: viewers trust the person before they trust the pitch, and that trust is what carries a sponsor's message past the video itself.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- METRICS -->
-<section class="metrics" id="metrics">
-  <div>
-    <div class="section-eyebrow" style="color:#9DBDB8;">The audience</div>
-    <h2 class="section-heading section-heading-light">High-attention viewers, researching before they buy.</h2>
-  </div>
-  <div class="audience-grid">
-    <div class="audience-card">
-      <div class="audience-card-title">Deliberate switchers</div>
-      <p class="audience-card-body">Viewers actively comparing products before a purchase decision, the exact moment a sponsor message lands with intent.</p>
+<!-- PROOF -->
+<section class="section dark dark-mid" id="proof">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-light">Recent sponsorship, real numbers</div>
+      <h2 class="section-heading section-heading-light">A live case study: RayNeo GT Max.</h2>
+      <p class="section-sub section-sub-light">Published 3 September 2026 as a paid dedicated video for the RayNeo GT Max IFA Berlin launch. This is what the first 60 hours looked like, shared as-is, not cherry-picked after the fact.</p>
     </div>
-    <div class="audience-card">
-      <div class="audience-card-title">Full-video watchers</div>
-      <p class="audience-card-body">Recent uploads hold viewers to an average watch time north of 3 minutes, well past the point most short-form ads get skipped.</p>
-    </div>
-    <div class="audience-card">
-      <div class="audience-card-title">Organic, not paid, discovery</div>
-      <p class="audience-card-body">84.9% of views come from YouTube's own recommendations, not shorts churn or paid boosting. The platform itself vouches for the content.</p>
+    <div class="card-grid-3">
+      <div class="card card-stat"><div class="card-stat-num">14.4K</div><div class="card-stat-label">Views, first 60 hours</div></div>
+      <div class="card card-stat"><div class="card-stat-num">5.9%</div><div class="card-stat-label">Thumbnail click-through rate</div></div>
+      <div class="card card-stat"><div class="card-stat-num">2:54</div><div class="card-stat-label">Average view duration</div></div>
     </div>
   </div>
-  <div class="data-note">2.2K subscribers and a 7.4% average thumbnail click-through rate. Full audience retention, watch-time, and conversion data available in the media kit, sent directly to partners upon request.</div>
 </section>
 
-<!-- PIPELINE -->
-<section class="pipeline" id="pipeline">
-  <div class="pipeline-header">
-    <div>
-      <div class="section-eyebrow">In production</div>
-      <h2 class="section-heading">Several long-form projects are already in the works.</h2>
+<!-- AUDIENCE -->
+<section class="section dark dark-last" id="metrics">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow eyebrow-light">The audience</div>
+      <h2 class="section-heading section-heading-light">High-attention viewers, researching before they buy.</h2>
     </div>
-    <p class="pipeline-note">New releases land roughly every 3 to 4 weeks. ArcRender works directly with brands only, no agencies or managers. Slots are limited and allocated to partners who are the right fit for the content.</p>
-  </div>
-  <div class="pipeline-grid">
-    <div class="pipeline-card">
-      <span class="pipeline-status">In production · All slots full</span>
-      <span class="pipeline-title">What I Actually Carry Every Day</span>
-      <span class="pipeline-slot">Slot: Full</span>
+    <div class="card-grid-3">
+      <div class="card">
+        <div class="card-title">Deliberate switchers</div>
+        <p class="card-body">Viewers actively comparing products before a purchase decision, the exact moment a sponsor message lands with intent.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Full-video watchers</div>
+        <p class="card-body">Recent uploads hold viewers to an average watch time north of 3 minutes, well past the point most short-form ads get skipped.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Organic discovery</div>
+        <p class="card-body">84.9% of views come from YouTube's own recommendations, not shorts churn or paid boosting. The platform itself vouches for the content.</p>
+      </div>
     </div>
-    <div class="pipeline-card">
-      <span class="pipeline-status">In production</span>
-      <span class="pipeline-title">The 12-inch MacBook Nobody Wanted</span>
-      <span class="pipeline-slot">Slot: Open on Request</span>
-    </div>
-    <div class="pipeline-card">
-      <span class="pipeline-status">In production · Prestige piece · Slots open</span>
-      <span class="pipeline-title">A forgotten handheld. A forgotten laptop.</span>
-      <span class="pipeline-slot">Slot: Open on Request</span>
-    </div>
+    <p class="data-note">2.2K subscribers and a 7.4% average thumbnail click-through rate. Full audience retention, watch-time, and conversion data available in the media kit, sent directly to partners upon request.</p>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact">
-  <div>
-    <div class="contact-heading">Let's talk partnership.</div>
-    <p class="contact-body">Reach out directly, no agency required, to discuss a dedicated video, integration, or upcoming slot.</p>
+  <div class="contact-inner">
+    <div>
+      <div class="contact-heading">Let's talk partnership.</div>
+      <p class="contact-body">Reach out directly, no agency required, to discuss a dedicated video, integration, or upcoming slot.</p>
+    </div>
+    <a class="btn-cream" href="mailto:arc@arcrender.net">arc@arcrender.net</a>
   </div>
-  <a class="btn-cream" href="mailto:arc@arcrender.net">arc@arcrender.net</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
+  <div class="footer-inner">
   <div class="footer-top">
     <div class="footer-brand">
       <img src="icon.jpg" alt="ArcRender" onerror="this.style.display='none'">
@@ -455,6 +374,7 @@
   </div>
   <p class="footer-seo">ArcRender is a long-form tech and gadget review channel specializing in honest reviews, in-depth switcher stories, and prestige-quality video content for brand partnerships and YouTube sponsorships. Every visual is handcrafted, not AI-generated, and every review is hosted on camera by a real, honest presence. The channel's top video has passed 400K organic views, and the channel averages a 7.4% thumbnail click-through rate. ArcRender works directly with brands only and does not work with talent agencies or management companies. High-retention, high-completion-rate content built for advertisers seeking stronger D7 through D28 ROAS versus traditional impression-based ad campaigns.</p>
   <div class="footer-copy">© 2026 ArcRender · Brand Partnerships and Sponsorship Inquiries</div>
+  </div>
 </footer>
 
 </body>
